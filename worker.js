@@ -422,11 +422,50 @@ function fromAnthropic(ip) {
   return p[0] === 160 && p[1] === 79 && p[2] >= 104 && p[2] <= 111;
 }
 
-function authorized(request, env, url) {
+const OPENAI_EGRESS_URL = "https://openai.com/chatgpt-connectors.json";
+let openAiRanges = null;
+let openAiRangesUntil = 0;
+function ipv4ToInt(ip) {
+  const p = String(ip || "").split(".");
+  if (p.length !== 4 || p.some(x => !/^\d{1,3}$/.test(x) || +x > 255)) return null;
+  return p.reduce((n, x) => ((n << 8) | +x) >>> 0, 0);
+}
+function inCidr(ip, cidr) {
+  const [network, bitsText] = String(cidr).split("/");
+  const bits = Number(bitsText);
+  const a = ipv4ToInt(ip), b = ipv4ToInt(network);
+  if (a === null || b === null || !Number.isInteger(bits) || bits < 0 || bits > 32) return false;
+  const mask = bits === 0 ? 0 : (0xffffffff << (32 - bits)) >>> 0;
+  return (a & mask) === (b & mask);
+}
+async function fromOpenAI(ip) {
+  if (ipv4ToInt(ip) === null) return false;
+  if (!openAiRanges || Date.now() >= openAiRangesUntil) {
+    try {
+      const response = await fetch(OPENAI_EGRESS_URL, { signal: AbortSignal.timeout(5000) });
+      if (!response.ok) throw new Error("egress list unavailable");
+      const data = await response.json();
+      const ranges = data.prefixes?.map(p => p.ipv4Prefix).filter(x => typeof x === "string");
+      if (!ranges?.length) throw new Error("egress list invalid");
+      openAiRanges = ranges;
+      openAiRangesUntil = Date.now() + 3600000;
+    } catch { return false; }
+  }
+  return openAiRanges.some(cidr => inCidr(ip, cidr));
+}
+async function authorized(request, env, url) {
   const key = env.ACCESS_KEY;
-  if (!key || url.pathname !== "/mcp") return false;
-  const h = request.headers;
-  return h.get("x-api-key") === key || h.get("authorization") === `Bearer ${key}`;
+  if (!key) return false;
+  const ip = request.headers.get("cf-connecting-ip");
+  if (url.pathname === "/mcp") {
+    if (env.ALLOW_ALL_IPS !== "true" && !fromAnthropic(ip)) return false;
+    const h = request.headers;
+    return h.get("x-api-key") === key || h.get("authorization") === `Bearer ${key}`;
+  }
+  if (url.pathname === `/mcp/${encodeURIComponent(key)}`) {
+    return env.ALLOW_ALL_IPS === "true" || await fromOpenAI(ip);
+  }
+  return false;
 }
 
 const rpcError = (id, code, message) => Response.json({ jsonrpc: "2.0", id, error: { code, message } });
@@ -435,8 +474,7 @@ const HANDLERS = { search_ebay: searchItems, get_ebay_item: getItem, get_seller_
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
-    if (env.ALLOW_ALL_IPS !== "true" && !fromAnthropic(request.headers.get("cf-connecting-ip"))) return new Response("Forbidden", { status: 403 });
-    if (!authorized(request, env, url)) return new Response("Not found", { status: 404 });
+    if (!await authorized(request, env, url)) return new Response("Not found", { status: 404 });
     if (request.method !== "POST") return new Response("Method not allowed", { status: 405, headers: { Allow: "POST" } });
     let msg;
     try { msg = await request.json(); } catch { return rpcError(null, -32700, "Parse error"); }
@@ -447,7 +485,7 @@ export default {
         return reply({
           protocolVersion: msg.params?.protocolVersion || "2025-06-18",
           capabilities: { tools: {} },
-          serverInfo: { name: "ebay-de", version: "2.0.1" },
+          serverInfo: { name: "ebay-de", version: "2.0.3" },
         });
       case "ping": return reply({});
       case "tools/list": return reply({ tools: TOOLS });
