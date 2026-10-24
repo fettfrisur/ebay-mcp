@@ -190,7 +190,7 @@ async function reputationLines(env, seller, indent = "    ") {
   const user = seller.username;
   const [sum, neg] = await Promise.allSettled([
     ebayGet(env, `/commerce/feedback/v1/feedback_rating_summary?${new URLSearchParams({ user_id: user, filter: "ratingType:OVERALL_EXPERIENCE" })}`, { scope: FEEDBACK_SCOPE }),
-    ebayGet(env, feedbackPath(user, ["role:BUYER", "commentType:NEGATIVE"], { sort: "TIME", limit: "25" }), { scope: FEEDBACK_SCOPE }),
+    ebayGet(env, feedbackPath(user, ["role:SELLER", "commentType:NEGATIVE"], { sort: "TIME", limit: "25" }), { scope: FEEDBACK_SCOPE }),
   ]);
   if (sum.status === "rejected" && neg.status === "rejected") {
     return [indent + who.join(" · ") + ` · seller rep: unavailable (${feedbackFailure(sum.reason)})`];
@@ -311,7 +311,7 @@ async function sellerFeedback(env, a) {
   const user = String(a.username || "").trim();
   if (!user) throw new Error("username is required (shown as 'seller:' in search results)");
   const type = a.comment_type || "negative";
-  const filters = ["role:BUYER"]; // feedback this user received from buyers, i.e. as a seller
+  const filters = ["role:SELLER"]; // eBay's role filter is the rated user's role: feedback received as a seller
   if (type !== "all") {
     if (!["positive", "neutral", "negative"].includes(type)) throw new Error("comment_type must be negative, neutral, positive or all");
     filters.push(`commentType:${type.toUpperCase()}`);
@@ -447,7 +447,7 @@ export default {
         return reply({
           protocolVersion: msg.params?.protocolVersion || "2025-06-18",
           capabilities: { tools: {} },
-          serverInfo: { name: "ebay-de", version: "2.0.0" },
+          serverInfo: { name: "ebay-de", version: "2.0.1" },
         });
       case "ping": return reply({});
       case "tools/list": return reply({ tools: TOOLS });
