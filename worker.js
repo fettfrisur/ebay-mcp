@@ -1,8 +1,7 @@
 // eBay.de Browse API → MCP server (Cloudflare Worker, no dependencies)
 // Secrets: EBAY_CLIENT_ID (App ID), EBAY_CLIENT_SECRET (Cert ID), ACCESS_KEY (long random string)
-// Connector URL for Claude: https://<your-worker>.workers.dev/mcp/<ACCESS_KEY>
-//   or https://<your-worker>.workers.dev/mcp with request header x-api-key: <ACCESS_KEY>
-//   (or Authorization: Bearer <ACCESS_KEY>)
+// Connector URL for Claude: https://<your-worker>.workers.dev/mcp
+//   with request header x-api-key: <ACCESS_KEY> (or Authorization: Bearer <ACCESS_KEY>)
 // Only requests from Anthropic's egress range (160.79.104.0/21) are accepted,
 // unless the variable ALLOW_ALL_IPS is set to "true" (for testing).
 // Nothing from eBay is stored: only the OAuth app token is kept in memory until it expires.
@@ -49,7 +48,6 @@ function fromAnthropic(ip) {
 function authorized(request, env, url) {
   const key = env.ACCESS_KEY;
   if (!key) return false;
-  if (url.pathname === `/mcp/${key}`) return true;
   if (url.pathname !== "/mcp") return false;
   const h = request.headers;
   return h.get("x-api-key") === key || h.get("authorization") === `Bearer ${key}`;
@@ -61,8 +59,8 @@ async function searchItems(env, a) {
   const zip = a.postal_code || "70173";
   const f = ["itemLocationCountry:DE"];
   if (a.min_price != null || a.max_price != null) f.push(`price:[${a.min_price ?? ""}..${a.max_price ?? ""}]`, "priceCurrency:EUR");
-  if (a.condition === "used") f.push("conditions:{USED}");
-  if (a.condition === "new") f.push("conditions:{NEW}");
+  const CONDITIONS = { new: "1000", used: "3000", refurbished: "2000|2010|2020|2030|2500", for_parts: "7000" };
+  if (CONDITIONS[a.condition]) f.push(`conditionIds:{${CONDITIONS[a.condition]}}`);
   if (a.buy_it_now_only) f.push("buyingOptions:{FIXED_PRICE}");
   if (a.radius_km) f.push("pickupCountry:DE", `pickupPostalCode:${zip}`, `pickupRadius:${a.radius_km}`,
     "pickupRadiusUnit:km", "deliveryOptions:{SELLER_ARRANGED_LOCAL_PICKUP}");
@@ -108,7 +106,7 @@ const TOOLS = [
       properties: {
         query: { type: "string", description: "Search keywords, e.g. 'Pixel 6a'" },
         min_price: { type: "number" }, max_price: { type: "number", description: "EUR" },
-        condition: { type: "string", enum: ["any", "used", "new"] },
+        condition: { type: "string", enum: ["any", "new", "used", "refurbished", "for_parts"], description: "used = working used items only; for_parts = broken/spares" },
         buy_it_now_only: { type: "boolean" },
         postal_code: { type: "string", description: "Default 70173 (Stuttgart)" },
         radius_km: { type: "number", description: "Local-pickup radius; omit to include shipped items" },
@@ -145,7 +143,7 @@ export default {
         return reply({
           protocolVersion: msg.params?.protocolVersion || "2025-06-18",
           capabilities: { tools: {} },
-          serverInfo: { name: "ebay-de", version: "1.1.0" },
+          serverInfo: { name: "ebay-de", version: "1.2.0" },
         });
       case "ping": return reply({});
       case "tools/list": return reply({ tools: TOOLS });
