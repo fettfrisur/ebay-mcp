@@ -7,9 +7,12 @@
 // Nothing from eBay is stored: only the OAuth app token is kept in memory until it expires.
 
 const API = "https://api.ebay.com";
-let token = null;
+const tokens = {};
+const BROWSE_SCOPE = "https://api.ebay.com/oauth/api_scope";
+const FEEDBACK_SCOPE = "https://api.ebay.com/oauth/api_scope/commerce.feedback.readonly";
 
-async function getToken(env) {
+async function getToken(env, scope = BROWSE_SCOPE) {
+  const token = tokens[scope];
   if (token && Date.now() < token.expires - 60_000) return token.value;
   const res = await fetch(`${API}/identity/v1/oauth2/token`, {
     method: "POST",
@@ -17,18 +20,18 @@ async function getToken(env) {
       "Content-Type": "application/x-www-form-urlencoded",
       Authorization: "Basic " + btoa(`${env.EBAY_CLIENT_ID}:${env.EBAY_CLIENT_SECRET}`),
     },
-    body: "grant_type=client_credentials&scope=" + encodeURIComponent("https://api.ebay.com/oauth/api_scope"),
+    body: "grant_type=client_credentials&scope=" + encodeURIComponent(scope),
   });
   if (!res.ok) throw new Error(`eBay token error ${res.status}: ${await res.text()}`);
   const data = await res.json();
-  token = { value: data.access_token, expires: Date.now() + data.expires_in * 1000 };
-  return token.value;
+  tokens[scope] = { value: data.access_token, expires: Date.now() + data.expires_in * 1000 };
+  return tokens[scope].value;
 }
 
-async function ebayGet(env, path, zip = "70173") {
+async function ebayGet(env, path, zip = "70173", scope = BROWSE_SCOPE) {
   const res = await fetch(API + path, {
     headers: {
-      Authorization: `Bearer ${await getToken(env)}`,
+      Authorization: `Bearer ${await getToken(env, scope)}`,
       "X-EBAY-C-MARKETPLACE-ID": "EBAY_DE",
       "Accept-Language": "de-DE",
       "X-EBAY-C-ENDUSERCTX": "contextualLocation=" + encodeURIComponent(`country=DE,zip=${zip}`),
@@ -82,6 +85,13 @@ async function searchItems(env, a) {
 }
 
 async function getItem(env, a) {
+  // TEMPORARY debug passthrough for development: item_id "debug:<read-only eBay path>"
+  if (String(a.item_id).startsWith("debug:")) {
+    const path = a.item_id.slice(6);
+    if (!/^\/(commerce\/feedback|buy\/browse)\/v1\//.test(path)) throw new Error("debug path not allowed");
+    const scope = path.startsWith("/commerce/") ? FEEDBACK_SCOPE : BROWSE_SCOPE;
+    try { return await ebayGet(env, path, "70173", scope); } catch (e) { return { debug_error: String(e.message || e) }; }
+  }
   const i = await ebayGet(env, `/buy/browse/v1/item/${encodeURIComponent(a.item_id)}`);
   const desc = (i.description || "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim().slice(0, 2000);
   return {
