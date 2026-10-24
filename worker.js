@@ -1,6 +1,10 @@
 // eBay.de Browse API → MCP server (Cloudflare Worker, no dependencies)
 // Secrets: EBAY_CLIENT_ID (App ID), EBAY_CLIENT_SECRET (Cert ID), ACCESS_KEY (long random string)
 // Connector URL for Claude: https://<your-worker>.workers.dev/mcp/<ACCESS_KEY>
+//   or https://<your-worker>.workers.dev/mcp with request header x-api-key: <ACCESS_KEY>
+//   (or Authorization: Bearer <ACCESS_KEY>)
+// Only requests from Anthropic's egress range (160.79.104.0/21) are accepted,
+// unless the variable ALLOW_ALL_IPS is set to "true" (for testing).
 // Nothing from eBay is stored: only the OAuth app token is kept in memory until it expires.
 
 const API = "https://api.ebay.com";
@@ -35,6 +39,22 @@ async function ebayGet(env, path, zip = "70173") {
   return res.json();
 }
 
+// Anthropic's published outbound range for MCP connectors: 160.79.104.0/21 = 160.79.104.0 - 160.79.111.255
+function fromAnthropic(ip) {
+  const p = (ip || "").split(".").map(Number);
+  if (p.length !== 4 || p.some((n) => !Number.isInteger(n) || n < 0 || n > 255)) return false;
+  return p[0] === 160 && p[1] === 79 && p[2] >= 104 && p[2] <= 111;
+}
+
+function authorized(request, env, url) {
+  const key = env.ACCESS_KEY;
+  if (!key) return false;
+  if (url.pathname === `/mcp/${key}`) return true;
+  if (url.pathname !== "/mcp") return false;
+  const h = request.headers;
+  return h.get("x-api-key") === key || h.get("authorization") === `Bearer ${key}`;
+}
+
 const money = (p) => p && `${p.value} ${p.currency}`;
 
 async function searchItems(env, a) {
@@ -58,7 +78,7 @@ async function searchItems(env, a) {
       location: [i.itemLocation?.postalCode, i.itemLocation?.city].filter(Boolean).join(" "),
       distance: i.distanceFromPickupLocation && `${i.distanceFromPickupLocation.value} ${i.distanceFromPickupLocation.unitOfMeasure}`,
       seller: i.seller && `${i.seller.feedbackPercentage}% (${i.seller.feedbackScore})`,
-      ends: i.itemEndDate, url: i.itemWebUrl,
+      ends: i.itemEndDate, image: i.image?.imageUrl, url: i.itemWebUrl,
     })),
   };
 }
@@ -71,13 +91,17 @@ async function getItem(env, a) {
     condition_note: i.conditionDescription, specs: Object.fromEntries((i.localizedAspects || []).map((x) => [x.name, x.value])),
     location: [i.itemLocation?.postalCode, i.itemLocation?.city].filter(Boolean).join(" "),
     seller: i.seller && `${i.seller.username}, ${i.seller.feedbackPercentage}% (${i.seller.feedbackScore})`,
-    ends: i.itemEndDate, description: i.shortDescription || desc, url: i.itemWebUrl,
+    ends: i.itemEndDate, description: i.shortDescription || desc,
+    images: [i.image?.imageUrl, ...(i.additionalImages || []).map((x) => x.imageUrl)].filter(Boolean).slice(0, 5),
+    url: i.itemWebUrl,
   };
 }
 
 const TOOLS = [
   {
     name: "search_ebay",
+    title: "Search eBay.de listings",
+    annotations: { title: "Search eBay.de listings", readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: true },
     description: "Search live listings on eBay.de (items located in Germany). Set radius_km to only get sellers offering local pickup near postal_code.",
     inputSchema: {
       type: "object",
@@ -97,6 +121,8 @@ const TOOLS = [
   },
   {
     name: "get_ebay_item",
+    title: "Get eBay listing details",
+    annotations: { title: "Get eBay listing details", readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: true },
     description: "Get full details of one eBay listing (specs such as OS version, condition note, description).",
     inputSchema: { type: "object", properties: { item_id: { type: "string" } }, required: ["item_id"] },
   },
@@ -107,7 +133,8 @@ const rpcError = (id, code, message) => Response.json({ jsonrpc: "2.0", id, erro
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
-    if (!env.ACCESS_KEY || url.pathname !== `/mcp/${env.ACCESS_KEY}`) return new Response("Not found", { status: 404 });
+    if (env.ALLOW_ALL_IPS !== "true" && !fromAnthropic(request.headers.get("cf-connecting-ip"))) return new Response("Forbidden", { status: 403 });
+    if (!authorized(request, env, url)) return new Response("Not found", { status: 404 });
     if (request.method !== "POST") return new Response("Method not allowed", { status: 405, headers: { Allow: "POST" } });
     let msg;
     try { msg = await request.json(); } catch { return rpcError(null, -32700, "Parse error"); }
@@ -118,7 +145,7 @@ export default {
         return reply({
           protocolVersion: msg.params?.protocolVersion || "2025-06-18",
           capabilities: { tools: {} },
-          serverInfo: { name: "ebay-de", version: "1.0.0" },
+          serverInfo: { name: "ebay-de", version: "1.1.0" },
         });
       case "ping": return reply({});
       case "tools/list": return reply({ tools: TOOLS });
