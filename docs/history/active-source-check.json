@@ -1,0 +1,24 @@
+{
+  "checked_at": "2026-10-30T13:53:22.677Z",
+  "deployment": {
+    "id": "6191ed75-fd22-4c80-b7c0-6d1e3fc87658",
+    "created_on": "2026-10-29T16:15:34.340672Z"
+  },
+  "versions": [
+    {
+      "id": "0c328e09-c200-4280-a61b-3e27dba1ef4d",
+      "number": 14,
+      "created_on": "2026-10-29T16:15:34.340672Z",
+      "percentage": 100,
+      "main_module": "worker.js",
+      "compatibility_date": "2025-09-01",
+      "modules": [
+        {
+          "name": "worker.js",
+          "byte_length": 26310,
+          "sha256": "7ab08c6e8aa37074acea72974addf2a548ccec4055c46ab171c1edd3cf845849"
+        }
+      ]
+    }
+  ]
+}

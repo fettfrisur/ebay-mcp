@@ -1,0 +1,557 @@
+{
+  "format_version": 1,
+  "worker": "ebay-mcp",
+  "recovered_at": "2026-10-30T13:46:06.835Z",
+  "imported_at": "2026-10-30T13:53:59.906899+00:00",
+  "preserved_initial_commit": "2309c18f61ca33c421c2c763d709883a53c8f2c7",
+  "timestamp_meaning": "Cloudflare version creation timestamps, not original Git commit dates. Historical author dates are truncated to whole seconds by Git; full precision is retained here. Committer dates are actual reconstruction times.",
+  "bindings_policy": "Only names and types were exported; no binding values.",
+  "code_commits": [
+    {
+      "cloudflare_number": 1,
+      "commit": "2174a3dda71eefb5faf7b216a9e9ef2ce35ccdc1",
+      "title": "initial eBay Browse worker (1.0.0)",
+      "description": "Initial app-only eBay OAuth, German listing search and item details, JSON tool output, and an access key in the MCP URL path."
+    },
+    {
+      "cloudflare_number": 7,
+      "commit": "8efc033dc3f228febd47158174a910d9cbaf273a",
+      "title": "Claude authentication and listing images (1.1.0)",
+      "description": "Add header/Bearer authentication, the Anthropic egress allowlist, image URLs, and MCP read-only annotations while retaining the URL-key route."
+    },
+    {
+      "cloudflare_number": 9,
+      "commit": "c77f15ff73f5f39e5cc1fcc1ab3e5d7a3d9da9d1",
+      "title": "condition filters and header-only access (1.2.0)",
+      "description": "Remove URL-key access and distinguish working used, refurbished, and for-parts listings with explicit eBay condition IDs."
+    },
+    {
+      "cloudflare_number": 10,
+      "commit": "a21cfd1a5d8c54ac24cf3ce808c23d06e58e528a",
+      "title": "scoped tokens and temporary feedback investigation",
+      "description": "Keep OAuth tokens per scope and add a temporary read-only debug passthrough to investigate eBay Browse and Feedback responses. The server still identifies itself as 1.2.0."
+    },
+    {
+      "cloudflare_number": 11,
+      "commit": "b6a8fb1e69cd9db8777cc530fd7c6f9db1a7cde1",
+      "title": "plain-text results and seller reputation (2.0.0)",
+      "description": "Replace JSON results with readable text, inline seller reputation, add the seller-feedback tool and explicit failure reasons, and remove the temporary debug passthrough."
+    },
+    {
+      "cloudflare_number": 12,
+      "commit": "b107d9050b87e5d39cedda5a926f56c31314b8fd",
+      "title": "seller-role feedback correction (2.0.1)",
+      "description": "Change Feedback API filters from role:BUYER to role:SELLER because the role denotes the rated user. This recovers the corrected seller-feedback behavior."
+    },
+    {
+      "cloudflare_number": 13,
+      "commit": "8d5dee3eb7214bf7fc7c1924ec4c7d6f981c01b2",
+      "title": "ChatGPT URL authentication (2.0.3)",
+      "description": "Restore URL-key authentication for ChatGPT with OpenAI connector IP checks while preserving the Claude header route. Cloudflare version 14 later uploaded identical source."
+    }
+  ],
+  "versions": [
+    {
+      "id": "0c0c8033-9b6a-4b02-8d06-8f6b6334575c",
+      "number": 1,
+      "created_on": "2026-10-24T19:32:12.742881Z",
+      "source": "api",
+      "main_module": "worker.js",
+      "compatibility_date": "2025-09-01",
+      "bindings": [],
+      "annotations": {
+        "workers/triggered_by": "upload"
+      },
+      "modules": [
+        {
+          "name": "worker.js",
+          "content_type": "application/javascript+module",
+          "byte_length": 6933,
+          "sha256": "afdc040fea1fd558fc58f956e2311bd6bfe6d9e945e992589ded562f4c8021ad"
+        }
+      ],
+      "source_commit": "2174a3dda71eefb5faf7b216a9e9ef2ce35ccdc1",
+      "source_path": "worker.js",
+      "code_changed": true,
+      "server_version": "1.0.0"
+    },
+    {
+      "id": "ba10e187-63d6-4fff-a8c9-3af28c4bab5d",
+      "number": 2,
+      "created_on": "2026-10-24T19:32:13.615586Z",
+      "source": "api",
+      "main_module": "worker.js",
+      "compatibility_date": "2025-09-01",
+      "bindings": [
+        {
+          "name": "ACCESS_KEY",
+          "type": "secret_text"
+        }
+      ],
+      "annotations": {
+        "workers/triggered_by": "secret"
+      },
+      "modules": [
+        {
+          "name": "worker.js",
+          "content_type": "application/javascript+module",
+          "byte_length": 6933,
+          "sha256": "afdc040fea1fd558fc58f956e2311bd6bfe6d9e945e992589ded562f4c8021ad"
+        }
+      ],
+      "source_commit": "2174a3dda71eefb5faf7b216a9e9ef2ce35ccdc1",
+      "source_path": "worker.js",
+      "code_changed": false,
+      "server_version": "1.0.0"
+    },
+    {
+      "id": "3886adda-e115-4855-8925-f401d6981773",
+      "number": 3,
+      "created_on": "2026-10-24T19:40:50.373914Z",
+      "source": "dash",
+      "main_module": "worker.js",
+      "compatibility_date": "2025-09-01",
+      "bindings": [
+        {
+          "name": "ACCESS_KEY",
+          "type": "secret_text"
+        },
+        {
+          "name": "EBAY_CLIENT_ID",
+          "type": "plain_text"
+        }
+      ],
+      "annotations": {
+        "workers/message": "Add variable: EBAY_CLIENT_ID",
+        "workers/triggered_by": "version_upload"
+      },
+      "modules": [
+        {
+          "name": "worker.js",
+          "content_type": "application/javascript+module",
+          "byte_length": 6933,
+          "sha256": "afdc040fea1fd558fc58f956e2311bd6bfe6d9e945e992589ded562f4c8021ad"
+        }
+      ],
+      "source_commit": "2174a3dda71eefb5faf7b216a9e9ef2ce35ccdc1",
+      "source_path": "worker.js",
+      "code_changed": false,
+      "server_version": "1.0.0"
+    },
+    {
+      "id": "552f1830-6449-4189-be48-01131143fea9",
+      "number": 4,
+      "created_on": "2026-10-24T19:41:42.523484Z",
+      "source": "dash",
+      "main_module": "worker.js",
+      "compatibility_date": "2025-09-01",
+      "bindings": [
+        {
+          "name": "ACCESS_KEY",
+          "type": "secret_text"
+        },
+        {
+          "name": "EBAY_CLIENT_ID",
+          "type": "plain_text"
+        },
+        {
+          "name": "EBAY_CLIENT_SECRET",
+          "type": "plain_text"
+        }
+      ],
+      "annotations": {
+        "workers/message": "Add variable: EBAY_CLIENT_SECRET",
+        "workers/triggered_by": "version_upload"
+      },
+      "modules": [
+        {
+          "name": "worker.js",
+          "content_type": "application/javascript+module",
+          "byte_length": 6933,
+          "sha256": "afdc040fea1fd558fc58f956e2311bd6bfe6d9e945e992589ded562f4c8021ad"
+        }
+      ],
+      "source_commit": "2174a3dda71eefb5faf7b216a9e9ef2ce35ccdc1",
+      "source_path": "worker.js",
+      "code_changed": false,
+      "server_version": "1.0.0"
+    },
+    {
+      "id": "ada92caf-3735-4f50-b18f-a254ee9919e7",
+      "number": 5,
+      "created_on": "2026-10-24T19:45:02.814447Z",
+      "source": "dash",
+      "main_module": "worker.js",
+      "compatibility_date": "2025-09-01",
+      "bindings": [
+        {
+          "name": "ACCESS_KEY",
+          "type": "secret_text"
+        },
+        {
+          "name": "EBAY_CLIENT_ID",
+          "type": "plain_text"
+        },
+        {
+          "name": "EBAY_CLIENT_SECRET",
+          "type": "secret_text"
+        }
+      ],
+      "annotations": {
+        "workers/message": "Updated secret: EBAY_CLIENT_SECRET",
+        "workers/triggered_by": "version_upload"
+      },
+      "modules": [
+        {
+          "name": "worker.js",
+          "content_type": "application/javascript+module",
+          "byte_length": 6933,
+          "sha256": "afdc040fea1fd558fc58f956e2311bd6bfe6d9e945e992589ded562f4c8021ad"
+        }
+      ],
+      "source_commit": "2174a3dda71eefb5faf7b216a9e9ef2ce35ccdc1",
+      "source_path": "worker.js",
+      "code_changed": false,
+      "server_version": "1.0.0"
+    },
+    {
+      "id": "3ff192ca-8ebe-47a9-a6d8-9b31a1156cde",
+      "number": 6,
+      "created_on": "2026-10-24T19:45:17.996352Z",
+      "source": "dash",
+      "main_module": "worker.js",
+      "compatibility_date": "2025-09-01",
+      "bindings": [
+        {
+          "name": "ACCESS_KEY",
+          "type": "secret_text"
+        },
+        {
+          "name": "EBAY_CLIENT_ID",
+          "type": "secret_text"
+        },
+        {
+          "name": "EBAY_CLIENT_SECRET",
+          "type": "secret_text"
+        }
+      ],
+      "annotations": {
+        "workers/message": "Updated secret: EBAY_CLIENT_ID",
+        "workers/triggered_by": "version_upload"
+      },
+      "modules": [
+        {
+          "name": "worker.js",
+          "content_type": "application/javascript+module",
+          "byte_length": 6933,
+          "sha256": "afdc040fea1fd558fc58f956e2311bd6bfe6d9e945e992589ded562f4c8021ad"
+        }
+      ],
+      "source_commit": "2174a3dda71eefb5faf7b216a9e9ef2ce35ccdc1",
+      "source_path": "worker.js",
+      "code_changed": false,
+      "server_version": "1.0.0"
+    },
+    {
+      "id": "4c1e0913-ecde-4d2e-a9a2-4ee22adc18bd",
+      "number": 7,
+      "created_on": "2026-10-24T19:59:50.25968Z",
+      "source": "api",
+      "main_module": "worker.js",
+      "compatibility_date": "2025-09-01",
+      "bindings": [
+        {
+          "name": "ACCESS_KEY",
+          "type": "secret_text"
+        },
+        {
+          "name": "EBAY_CLIENT_ID",
+          "type": "secret_text"
+        },
+        {
+          "name": "EBAY_CLIENT_SECRET",
+          "type": "secret_text"
+        }
+      ],
+      "annotations": {
+        "workers/triggered_by": "upload"
+      },
+      "modules": [
+        {
+          "name": "worker.js",
+          "content_type": "application/javascript+module",
+          "byte_length": 8499,
+          "sha256": "ca4f3095c9dded98db20a09448b1b64399848c88ba6eb55411b7cc515463ab1f"
+        }
+      ],
+      "source_commit": "8efc033dc3f228febd47158174a910d9cbaf273a",
+      "source_path": "worker.js",
+      "code_changed": true,
+      "server_version": "1.1.0"
+    },
+    {
+      "id": "97a35396-4be2-4a20-9f39-4a149506662c",
+      "number": 8,
+      "created_on": "2026-10-24T20:21:13.861867Z",
+      "source": "dash",
+      "main_module": "worker.js",
+      "compatibility_date": "2025-09-01",
+      "bindings": [
+        {
+          "name": "ACCESS_KEY",
+          "type": "secret_text"
+        },
+        {
+          "name": "EBAY_CLIENT_ID",
+          "type": "secret_text"
+        },
+        {
+          "name": "EBAY_CLIENT_SECRET",
+          "type": "secret_text"
+        }
+      ],
+      "annotations": {
+        "workers/message": "Updated secret: ACCESS_KEY",
+        "workers/triggered_by": "version_upload"
+      },
+      "modules": [
+        {
+          "name": "worker.js",
+          "content_type": "application/javascript+module",
+          "byte_length": 8499,
+          "sha256": "ca4f3095c9dded98db20a09448b1b64399848c88ba6eb55411b7cc515463ab1f"
+        }
+      ],
+      "source_commit": "8efc033dc3f228febd47158174a910d9cbaf273a",
+      "source_path": "worker.js",
+      "code_changed": false,
+      "server_version": "1.1.0"
+    },
+    {
+      "id": "fbad07f9-ca38-44c7-aaf8-f7a847d6c407",
+      "number": 9,
+      "created_on": "2026-10-24T20:27:34.5804Z",
+      "source": "api",
+      "main_module": "worker.js",
+      "compatibility_date": "2025-09-01",
+      "bindings": [
+        {
+          "name": "ACCESS_KEY",
+          "type": "secret_text"
+        },
+        {
+          "name": "EBAY_CLIENT_ID",
+          "type": "secret_text"
+        },
+        {
+          "name": "EBAY_CLIENT_SECRET",
+          "type": "secret_text"
+        }
+      ],
+      "annotations": {
+        "workers/triggered_by": "upload"
+      },
+      "modules": [
+        {
+          "name": "worker.js",
+          "content_type": "application/javascript+module",
+          "byte_length": 8571,
+          "sha256": "de2540cdb2c593f70955bc79ff6d272feccddfba3e961c775260561688d8152b"
+        }
+      ],
+      "source_commit": "c77f15ff73f5f39e5cc1fcc1ab3e5d7a3d9da9d1",
+      "source_path": "worker.js",
+      "code_changed": true,
+      "server_version": "1.2.0"
+    },
+    {
+      "id": "04f7c987-62a0-463f-82e7-52805eb430dc",
+      "number": 10,
+      "created_on": "2026-10-24T20:58:34.986203Z",
+      "source": "api",
+      "main_module": "worker.js",
+      "compatibility_date": "2025-09-01",
+      "bindings": [
+        {
+          "name": "ACCESS_KEY",
+          "type": "secret_text"
+        },
+        {
+          "name": "EBAY_CLIENT_ID",
+          "type": "secret_text"
+        },
+        {
+          "name": "EBAY_CLIENT_SECRET",
+          "type": "secret_text"
+        }
+      ],
+      "annotations": {
+        "workers/triggered_by": "upload"
+      },
+      "modules": [
+        {
+          "name": "worker.js",
+          "content_type": "application/javascript+module",
+          "byte_length": 9277,
+          "sha256": "95500560dc423561f8eb6875bab69022cac2d5b6453ec66d9be1c43ac0601000"
+        }
+      ],
+      "source_commit": "a21cfd1a5d8c54ac24cf3ce808c23d06e58e528a",
+      "source_path": "worker.js",
+      "code_changed": true,
+      "server_version": "1.2.0"
+    },
+    {
+      "id": "7f4e29d2-fd51-478a-a45a-9f2273c790db",
+      "number": 11,
+      "created_on": "2026-10-24T21:03:03.136936Z",
+      "source": "api",
+      "main_module": "worker.js",
+      "compatibility_date": "2025-09-01",
+      "bindings": [
+        {
+          "name": "ACCESS_KEY",
+          "type": "secret_text"
+        },
+        {
+          "name": "EBAY_CLIENT_ID",
+          "type": "secret_text"
+        },
+        {
+          "name": "EBAY_CLIENT_SECRET",
+          "type": "secret_text"
+        }
+      ],
+      "annotations": {
+        "workers/triggered_by": "upload"
+      },
+      "modules": [
+        {
+          "name": "worker.js",
+          "content_type": "application/javascript+module",
+          "byte_length": 24762,
+          "sha256": "21030c5ac305f0f276eabc3c7bed73f80ef790eb8af38248185dc118c18814df"
+        }
+      ],
+      "source_commit": "b6a8fb1e69cd9db8777cc530fd7c6f9db1a7cde1",
+      "source_path": "worker.js",
+      "code_changed": true,
+      "server_version": "2.0.0"
+    },
+    {
+      "id": "79a44c73-62e4-47da-9fd5-e097bb11db21",
+      "number": 12,
+      "created_on": "2026-10-24T21:05:07.840997Z",
+      "source": "api",
+      "main_module": "worker.js",
+      "compatibility_date": "2025-09-01",
+      "bindings": [
+        {
+          "name": "ACCESS_KEY",
+          "type": "secret_text"
+        },
+        {
+          "name": "EBAY_CLIENT_ID",
+          "type": "secret_text"
+        },
+        {
+          "name": "EBAY_CLIENT_SECRET",
+          "type": "secret_text"
+        }
+      ],
+      "annotations": {
+        "workers/triggered_by": "upload"
+      },
+      "modules": [
+        {
+          "name": "worker.js",
+          "content_type": "application/javascript+module",
+          "byte_length": 24781,
+          "sha256": "c15a7618db051a0ec252084f24659106645c49c79d15583a8941331c2aeb676a"
+        }
+      ],
+      "source_commit": "b107d9050b87e5d39cedda5a926f56c31314b8fd",
+      "source_path": "worker.js",
+      "code_changed": true,
+      "server_version": "2.0.1"
+    },
+    {
+      "id": "98788612-3718-4b4b-9c2f-6f420ffa5c9e",
+      "number": 13,
+      "created_on": "2026-10-24T21:42:27.400912Z",
+      "source": "api",
+      "main_module": "worker.js",
+      "compatibility_date": "2025-09-01",
+      "bindings": [
+        {
+          "name": "ACCESS_KEY",
+          "type": "secret_text"
+        },
+        {
+          "name": "EBAY_CLIENT_ID",
+          "type": "secret_text"
+        },
+        {
+          "name": "EBAY_CLIENT_SECRET",
+          "type": "secret_text"
+        }
+      ],
+      "annotations": {
+        "workers/triggered_by": "upload"
+      },
+      "modules": [
+        {
+          "name": "worker.js",
+          "content_type": "application/javascript+module",
+          "byte_length": 26310,
+          "sha256": "7ab08c6e8aa37074acea72974addf2a548ccec4055c46ab171c1edd3cf845849"
+        }
+      ],
+      "source_commit": "8d5dee3eb7214bf7fc7c1924ec4c7d6f981c01b2",
+      "source_path": "worker.js",
+      "code_changed": true,
+      "server_version": "2.0.3"
+    },
+    {
+      "id": "0c328e09-c200-4280-a61b-3e27dba1ef4d",
+      "number": 14,
+      "created_on": "2026-10-29T16:15:34.340672Z",
+      "source": "api",
+      "main_module": "worker.js",
+      "compatibility_date": "2025-09-01",
+      "bindings": [
+        {
+          "name": "ACCESS_KEY",
+          "type": "secret_text"
+        },
+        {
+          "name": "ALLOW_ALL_IPS",
+          "type": "plain_text"
+        },
+        {
+          "name": "EBAY_CLIENT_ID",
+          "type": "secret_text"
+        },
+        {
+          "name": "EBAY_CLIENT_SECRET",
+          "type": "secret_text"
+        }
+      ],
+      "annotations": {
+        "workers/triggered_by": "upload"
+      },
+      "modules": [
+        {
+          "name": "worker.js",
+          "content_type": "application/javascript+module",
+          "byte_length": 26310,
+          "sha256": "7ab08c6e8aa37074acea72974addf2a548ccec4055c46ab171c1edd3cf845849"
+        }
+      ],
+      "source_commit": "8d5dee3eb7214bf7fc7c1924ec4c7d6f981c01b2",
+      "source_path": "worker.js",
+      "code_changed": false,
+      "server_version": "2.0.3"
+    }
+  ]
+}

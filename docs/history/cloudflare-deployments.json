@@ -1,0 +1,212 @@
+{
+  "recovered_at": "2026-10-30T13:46:06.835Z",
+  "deployments": [
+    {
+      "id": "6191ed75-fd22-4c80-b7c0-6d1e3fc87658",
+      "source": "api",
+      "strategy": "percentage",
+      "annotations": {
+        "workers/message": "Automatic deployment on upload.",
+        "workers/triggered_by": "upload"
+      },
+      "versions": [
+        {
+          "version_id": "0c328e09-c200-4280-a61b-3e27dba1ef4d",
+          "percentage": 100
+        }
+      ],
+      "created_on": "2026-10-29T16:15:34.340672Z"
+    },
+    {
+      "id": "3fe21f66-3cd4-4d2d-88c5-6c838b788b3a",
+      "source": "api",
+      "strategy": "percentage",
+      "annotations": {
+        "workers/message": "Automatic deployment on upload.",
+        "workers/triggered_by": "upload"
+      },
+      "versions": [
+        {
+          "version_id": "98788612-3718-4b4b-9c2f-6f420ffa5c9e",
+          "percentage": 100
+        }
+      ],
+      "created_on": "2026-10-24T21:42:27.400912Z"
+    },
+    {
+      "id": "ac5331b3-9b8e-4708-b7e2-76bb44970397",
+      "source": "api",
+      "strategy": "percentage",
+      "annotations": {
+        "workers/message": "Automatic deployment on upload.",
+        "workers/triggered_by": "upload"
+      },
+      "versions": [
+        {
+          "version_id": "79a44c73-62e4-47da-9fd5-e097bb11db21",
+          "percentage": 100
+        }
+      ],
+      "created_on": "2026-10-24T21:05:07.840997Z"
+    },
+    {
+      "id": "b97346e1-6a34-47af-90d4-5b452ea8d97c",
+      "source": "api",
+      "strategy": "percentage",
+      "annotations": {
+        "workers/message": "Automatic deployment on upload.",
+        "workers/triggered_by": "upload"
+      },
+      "versions": [
+        {
+          "version_id": "7f4e29d2-fd51-478a-a45a-9f2273c790db",
+          "percentage": 100
+        }
+      ],
+      "created_on": "2026-10-24T21:03:03.136936Z"
+    },
+    {
+      "id": "457d626c-3354-4557-82d0-349d2ea417a2",
+      "source": "api",
+      "strategy": "percentage",
+      "annotations": {
+        "workers/message": "Automatic deployment on upload.",
+        "workers/triggered_by": "upload"
+      },
+      "versions": [
+        {
+          "version_id": "04f7c987-62a0-463f-82e7-52805eb430dc",
+          "percentage": 100
+        }
+      ],
+      "created_on": "2026-10-24T20:58:34.986203Z"
+    },
+    {
+      "id": "89d56c78-47c5-46a9-b632-3d85ef42d0fb",
+      "source": "api",
+      "strategy": "percentage",
+      "annotations": {
+        "workers/message": "Automatic deployment on upload.",
+        "workers/triggered_by": "upload"
+      },
+      "versions": [
+        {
+          "version_id": "fbad07f9-ca38-44c7-aaf8-f7a847d6c407",
+          "percentage": 100
+        }
+      ],
+      "created_on": "2026-10-24T20:27:34.5804Z"
+    },
+    {
+      "id": "ff334991-5f10-42de-9392-55c5d38faa9f",
+      "source": "dash",
+      "strategy": "percentage",
+      "annotations": {
+        "workers/message": "Deployed version 97a35396",
+        "workers/triggered_by": "deployment"
+      },
+      "versions": [
+        {
+          "version_id": "97a35396-4be2-4a20-9f39-4a149506662c",
+          "percentage": 100
+        }
+      ],
+      "created_on": "2026-10-24T20:21:14.795002Z"
+    },
+    {
+      "id": "5dc88296-f25d-43f7-8c92-9fee372c7ad8",
+      "source": "api",
+      "strategy": "percentage",
+      "annotations": {
+        "workers/message": "Automatic deployment on upload.",
+        "workers/triggered_by": "upload"
+      },
+      "versions": [
+        {
+          "version_id": "4c1e0913-ecde-4d2e-a9a2-4ee22adc18bd",
+          "percentage": 100
+        }
+      ],
+      "created_on": "2026-10-24T19:59:50.25968Z"
+    },
+    {
+      "id": "4d47fe5a-5602-44d4-81fc-69d78b4cdef0",
+      "source": "dash",
+      "strategy": "percentage",
+      "annotations": {
+        "workers/message": "Deployed version 3ff192ca",
+        "workers/triggered_by": "deployment"
+      },
+      "versions": [
+        {
+          "version_id": "3ff192ca-8ebe-47a9-a6d8-9b31a1156cde",
+          "percentage": 100
+        }
+      ],
+      "created_on": "2026-10-24T19:45:19.565375Z"
+    },
+    {
+      "id": "5b64f1bd-ddbb-45d0-a681-305ac4bebf95",
+      "source": "dash",
+      "strategy": "percentage",
+      "annotations": {
+        "workers/message": "Deployed version ada92caf",
+        "workers/triggered_by": "deployment"
+      },
+      "versions": [
+        {
+          "version_id": "ada92caf-3735-4f50-b18f-a254ee9919e7",
+          "percentage": 100
+        }
+      ],
+      "created_on": "2026-10-24T19:45:04.011175Z"
+    },
+    {
+      "id": "b43b77b3-17e5-4f2f-91fc-99144bd4c3c6",
+      "source": "dash",
+      "strategy": "percentage",
+      "annotations": {
+        "workers/message": "Deployed version 552f1830",
+        "workers/triggered_by": "deployment"
+      },
+      "versions": [
+        {
+          "version_id": "552f1830-6449-4189-be48-01131143fea9",
+          "percentage": 100
+        }
+      ],
+      "created_on": "2026-10-24T19:41:43.590184Z"
+    },
+    {
+      "id": "f61427b2-5f95-492f-8d70-84cf95be95df",
+      "source": "api",
+      "strategy": "percentage",
+      "annotations": {
+        "workers/triggered_by": "secret"
+      },
+      "versions": [
+        {
+          "version_id": "ba10e187-63d6-4fff-a8c9-3af28c4bab5d",
+          "percentage": 100
+        }
+      ],
+      "created_on": "2026-10-24T19:32:13.615586Z"
+    },
+    {
+      "id": "0d1710c5-f369-4fe5-931c-5a624a97829b",
+      "source": "api",
+      "strategy": "percentage",
+      "annotations": {
+        "workers/message": "Automatic deployment on upload.",
+        "workers/triggered_by": "upload"
+      },
+      "versions": [
+        {
+          "version_id": "0c0c8033-9b6a-4b02-8d06-8f6b6334575c",
+          "percentage": 100
+        }
+      ],
+      "created_on": "2026-10-24T19:32:12.742881Z"
+    }
+  ]
+}

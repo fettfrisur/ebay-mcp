@@ -1,0 +1,21 @@
+{
+  "kind": "secondary summaries, not original transcripts",
+  "retrieval": "Personal Context, 30 October 2026",
+  "events": [
+    {
+      "timestamp": "2026-10-24T21:39:18Z",
+      "role": "user",
+      "summary": "Requested restoring URL-key authentication for ChatGPT while retaining Claude header authentication."
+    },
+    {
+      "timestamp": "2026-10-24T21:42:47Z",
+      "role": "assistant",
+      "summary": "Reported deployment and verification of v2.0.3, with ChatGPT URL-key route restricted to OpenAI connector IP ranges and Claude header route retained. Source diff corroborates the implementation; this historical test report was not rerun during recovery."
+    },
+    {
+      "timestamp": "2026-10-24T22:46:54Z",
+      "role": "assistant",
+      "summary": "Reported use of three eBay tools with 17 searches and five deep inspections and no failures. Suggested total_cost, functional_status, listing_warnings, shipping/collection restrictions, pagination, and preserving recent negative feedback. These are proposals/test reports, not evidence that the proposed features were implemented."
+    }
+  ]
+}
