@@ -13,7 +13,9 @@ python3 scripts/build-api-surface.py build/api-surface
 
 This downloads the contracts and writes `operations.csv`, `operations.json` and
 `ebay-app-token-api.openapi.json` (a merged, validated OpenAPI 3.1 file of the tier-A operations,
-useful as input when designing MCP tools). Generated output is not committed; it is about 1 MB.
+useful as input when designing MCP tools). `ebay-app-token-api.openapi.json` (about 1 MB) and
+`operations.csv` are committed in this folder; re-run the script and copy them over to refresh them.
+`operations.json` and the downloaded contracts are not committed.
 If the app's granted scopes change, edit `CC` and `AC` at the top of the script.
 
 ## Tiers
