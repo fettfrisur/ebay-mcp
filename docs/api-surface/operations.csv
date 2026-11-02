@@ -1,0 +1,419 @@
+tier,api,method,path,operationId,accepted_scopes_any_of
+A,browse,GET,/buy/browse/v1/item/get_item_by_legacy_id,getItemByLegacyId,api_scope
+A,browse,GET,/buy/browse/v1/item/get_items_by_item_group,getItemsByItemGroup,api_scope
+A,browse,GET,/buy/browse/v1/item/{item_id},getItem,api_scope
+A,browse,POST,/buy/browse/v1/item/{item_id}/check_compatibility,checkCompatibility,api_scope
+A,browse,GET,/buy/browse/v1/item_summary/search,search,api_scope
+A,browse,POST,/buy/browse/v1/item_summary/search_by_image,searchByImage,api_scope
+A,charity,GET,/commerce/charity/v1/charity_org,getCharityOrgs,api_scope
+A,charity,GET,/commerce/charity/v1/charity_org/{charity_org_id},getCharityOrg,api_scope
+A,developer_analytics,GET,/developer/analytics/v1_beta/rate_limit,getRateLimits,api_scope
+A,feedback,GET,/commerce/feedback/v1/feedback,getFeedback,api_scope/commerce.feedback | api_scope/commerce.feedback.readonly
+A,feedback,GET,/commerce/feedback/v1/feedback_rating_summary,getFeedbackRatingSummary,api_scope/commerce.feedback | api_scope/commerce.feedback.readonly
+A,key_management,GET,/developer/key_management/v1/signing_key,getSigningKeys,api_scope
+A,key_management,POST,/developer/key_management/v1/signing_key,createSigningKey,api_scope
+A,key_management,GET,/developer/key_management/v1/signing_key/{signing_key_id},getSigningKey,api_scope
+A,marketing,GET,/sell/marketing/v1/ad_report_metadata,getReportMetadata,api_scope
+A,marketing,GET,/sell/marketing/v1/ad_report_metadata/{report_type},getReportMetadataForReportType,api_scope
+A,metadata,POST,/sell/metadata/v1/compatibilities/get_compatibilities_by_specification,getCompatibilitiesBySpecification,api_scope
+A,metadata,POST,/sell/metadata/v1/compatibilities/get_compatibility_property_names,getCompatibilityPropertyNames,api_scope
+A,metadata,POST,/sell/metadata/v1/compatibilities/get_compatibility_property_values,getCompatibilityPropertyValues,api_scope
+A,metadata,POST,/sell/metadata/v1/compatibilities/get_multi_compatibility_property_values,getMultiCompatibilityPropertyValues,api_scope
+A,metadata,POST,/sell/metadata/v1/compatibilities/get_product_compatibilities,getProductCompatibilities,api_scope
+A,metadata,GET,/sell/metadata/v1/country/{countryCode}/sales_tax_jurisdiction,getSalesTaxJurisdictions,api_scope
+A,metadata,GET,/sell/metadata/v1/marketplace/{marketplace_id}/get_automotive_parts_compatibility_policies,getAutomotivePartsCompatibilityPolicies,api_scope
+A,metadata,GET,/sell/metadata/v1/marketplace/{marketplace_id}/get_category_policies,getCategoryPolicies,api_scope
+A,metadata,GET,/sell/metadata/v1/marketplace/{marketplace_id}/get_classified_ad_policies,getClassifiedAdPolicies,api_scope
+A,metadata,GET,/sell/metadata/v1/marketplace/{marketplace_id}/get_currencies,getCurrencies,api_scope
+A,metadata,GET,/sell/metadata/v1/marketplace/{marketplace_id}/get_extended_producer_responsibility_policies,getExtendedProducerResponsibilityPolicies,api_scope
+A,metadata,GET,/sell/metadata/v1/marketplace/{marketplace_id}/get_hazardous_materials_labels,getHazardousMaterialsLabels,api_scope
+A,metadata,GET,/sell/metadata/v1/marketplace/{marketplace_id}/get_item_condition_policies,getItemConditionPolicies,api_scope | api_scope/sell.inventory
+A,metadata,GET,/sell/metadata/v1/marketplace/{marketplace_id}/get_listing_structure_policies,getListingStructurePolicies,api_scope
+A,metadata,GET,/sell/metadata/v1/marketplace/{marketplace_id}/get_listing_type_policies,getListingTypePolicies,api_scope
+A,metadata,GET,/sell/metadata/v1/marketplace/{marketplace_id}/get_minimum_listing_price_policies,getMinimumListingPricePolicies,api_scope
+A,metadata,GET,/sell/metadata/v1/marketplace/{marketplace_id}/get_motors_listing_policies,getMotorsListingPolicies,api_scope
+A,metadata,GET,/sell/metadata/v1/marketplace/{marketplace_id}/get_negotiated_price_policies,getNegotiatedPricePolicies,api_scope
+A,metadata,GET,/sell/metadata/v1/marketplace/{marketplace_id}/get_product_safety_labels,getProductSafetyLabels,api_scope
+A,metadata,GET,/sell/metadata/v1/marketplace/{marketplace_id}/get_regulatory_policies,getRegulatoryPolicies,api_scope
+A,metadata,GET,/sell/metadata/v1/marketplace/{marketplace_id}/get_return_policies,getReturnPolicies,api_scope
+A,metadata,GET,/sell/metadata/v1/marketplace/{marketplace_id}/get_shipping_policies,getShippingPolicies,api_scope
+A,metadata,GET,/sell/metadata/v1/marketplace/{marketplace_id}/get_site_visibility_policies,getSiteVisibilityPolicies,api_scope
+A,metadata,GET,/sell/metadata/v1/shipping/marketplace/{marketplace_id}/get_exclude_shipping_locations,getExcludeShippingLocations,api_scope
+A,metadata,GET,/sell/metadata/v1/shipping/marketplace/{marketplace_id}/get_handling_times,getHandlingTimes,api_scope
+A,metadata,GET,/sell/metadata/v1/shipping/marketplace/{marketplace_id}/get_shipping_carriers,getShippingCarriers,api_scope
+A,metadata,GET,/sell/metadata/v1/shipping/marketplace/{marketplace_id}/get_shipping_locations,getShippingLocations,api_scope
+A,metadata,GET,/sell/metadata/v1/shipping/marketplace/{marketplace_id}/get_shipping_services,getShippingServices,api_scope
+A,notification,GET,/commerce/notification/v1/config,getConfig,api_scope
+A,notification,PUT,/commerce/notification/v1/config,updateConfig,api_scope
+A,notification,GET,/commerce/notification/v1/destination,getDestinations,api_scope
+A,notification,POST,/commerce/notification/v1/destination,createDestination,api_scope
+A,notification,GET,/commerce/notification/v1/destination/{destination_id},getDestination,api_scope
+A,notification,PUT,/commerce/notification/v1/destination/{destination_id},updateDestination,api_scope
+A,notification,DELETE,/commerce/notification/v1/destination/{destination_id},deleteDestination,api_scope
+A,notification,GET,/commerce/notification/v1/public_key/{public_key_id},getPublicKey,api_scope
+A,notification,GET,/commerce/notification/v1/subscription,getSubscriptions,api_scope | api_scope/commerce.notification.subscription | api_scope/commerce.notification.subscription.readonly
+A,notification,POST,/commerce/notification/v1/subscription,createSubscription,api_scope | api_scope/commerce.notification.subscription
+A,notification,GET,/commerce/notification/v1/subscription/{subscription_id},getSubscription,api_scope | api_scope/commerce.notification.subscription | api_scope/commerce.notification.subscription.readonly
+A,notification,PUT,/commerce/notification/v1/subscription/{subscription_id},updateSubscription,api_scope | api_scope/commerce.notification.subscription
+A,notification,DELETE,/commerce/notification/v1/subscription/{subscription_id},deleteSubscription,api_scope | api_scope/commerce.notification.subscription
+A,notification,POST,/commerce/notification/v1/subscription/{subscription_id}/disable,disableSubscription,api_scope | api_scope/commerce.notification.subscription
+A,notification,POST,/commerce/notification/v1/subscription/{subscription_id}/enable,enableSubscription,api_scope | api_scope/commerce.notification.subscription
+A,notification,POST,/commerce/notification/v1/subscription/{subscription_id}/filter,createSubscriptionFilter,api_scope | api_scope/commerce.notification.subscription
+A,notification,GET,/commerce/notification/v1/subscription/{subscription_id}/filter/{filter_id},getSubscriptionFilter,api_scope | api_scope/commerce.notification.subscription | api_scope/commerce.notification.subscription.readonly
+A,notification,DELETE,/commerce/notification/v1/subscription/{subscription_id}/filter/{filter_id},deleteSubscriptionFilter,api_scope | api_scope/commerce.notification.subscription
+A,notification,POST,/commerce/notification/v1/subscription/{subscription_id}/test,testSubscription,api_scope | api_scope/commerce.notification.subscription
+A,notification,GET,/commerce/notification/v1/topic,getTopics,api_scope
+A,notification,GET,/commerce/notification/v1/topic/{topic_id},getTopic,api_scope
+A,taxonomy,GET,/commerce/taxonomy/v1/category_tree/{category_tree_id},getCategoryTree,api_scope
+A,taxonomy,GET,/commerce/taxonomy/v1/category_tree/{category_tree_id}/fetch_item_aspects,fetchItemAspects,api_scope | api_scope/metadata.insights
+A,taxonomy,GET,/commerce/taxonomy/v1/category_tree/{category_tree_id}/get_category_subtree,getCategorySubtree,api_scope
+A,taxonomy,GET,/commerce/taxonomy/v1/category_tree/{category_tree_id}/get_category_suggestions,getCategorySuggestions,api_scope
+A,taxonomy,GET,/commerce/taxonomy/v1/category_tree/{category_tree_id}/get_compatibility_properties,getCompatibilityProperties,api_scope
+A,taxonomy,GET,/commerce/taxonomy/v1/category_tree/{category_tree_id}/get_compatibility_property_values,getCompatibilityPropertyValues,api_scope
+A,taxonomy,GET,/commerce/taxonomy/v1/category_tree/{category_tree_id}/get_expired_categories,getExpiredCategories,api_scope
+A,taxonomy,GET,/commerce/taxonomy/v1/category_tree/{category_tree_id}/get_item_aspects_for_category,getItemAspectsForCategory,api_scope | api_scope/metadata.insights
+A,taxonomy,GET,/commerce/taxonomy/v1/get_default_category_tree_id,getDefaultCategoryTreeId,api_scope
+A,translation,POST,/commerce/translation/v1_beta/translate,translate,api_scope
+B,account,GET,/sell/account/v1/advertising_eligibility,getAdvertisingEligibility,api_scope/sell.account | api_scope/sell.account.readonly
+B,account,POST,/sell/account/v1/bulk_create_or_replace_sales_tax,bulkCreateOrReplaceSalesTax,api_scope/sell.account
+B,account,GET,/sell/account/v1/custom_policy/,getCustomPolicies,api_scope/sell.account | api_scope/sell.account.readonly
+B,account,POST,/sell/account/v1/custom_policy/,createCustomPolicy,api_scope/sell.account
+B,account,GET,/sell/account/v1/custom_policy/{custom_policy_id},getCustomPolicy,api_scope/sell.account | api_scope/sell.account.readonly
+B,account,PUT,/sell/account/v1/custom_policy/{custom_policy_id},updateCustomPolicy,api_scope/sell.account
+B,account,GET,/sell/account/v1/fulfillment_policy,getFulfillmentPolicies,api_scope/sell.account | api_scope/sell.account.readonly
+B,account,POST,/sell/account/v1/fulfillment_policy/,createFulfillmentPolicy,api_scope/sell.account
+B,account,GET,/sell/account/v1/fulfillment_policy/get_by_policy_name,getFulfillmentPolicyByName,api_scope/sell.account | api_scope/sell.account.readonly
+B,account,GET,/sell/account/v1/fulfillment_policy/{fulfillmentPolicyId},getFulfillmentPolicy,api_scope/sell.account | api_scope/sell.account.readonly
+B,account,PUT,/sell/account/v1/fulfillment_policy/{fulfillmentPolicyId},updateFulfillmentPolicy,api_scope/sell.account
+B,account,DELETE,/sell/account/v1/fulfillment_policy/{fulfillmentPolicyId},deleteFulfillmentPolicy,api_scope/sell.account
+B,account,GET,/sell/account/v1/kyc,getKYC,api_scope/sell.account | api_scope/sell.account.readonly
+B,account,GET,/sell/account/v1/payment_policy,getPaymentPolicies,api_scope/sell.account | api_scope/sell.account.readonly
+B,account,POST,/sell/account/v1/payment_policy,createPaymentPolicy,api_scope/sell.account
+B,account,GET,/sell/account/v1/payment_policy/get_by_policy_name,getPaymentPolicyByName,api_scope/sell.account | api_scope/sell.account.readonly
+B,account,GET,/sell/account/v1/payment_policy/{payment_policy_id},getPaymentPolicy,api_scope/sell.account | api_scope/sell.account.readonly
+B,account,PUT,/sell/account/v1/payment_policy/{payment_policy_id},updatePaymentPolicy,api_scope/sell.account
+B,account,DELETE,/sell/account/v1/payment_policy/{payment_policy_id},deletePaymentPolicy,api_scope/sell.account
+B,account,GET,/sell/account/v1/payments_program/{marketplace_id}/{payments_program_type},getPaymentsProgram,api_scope/sell.account | api_scope/sell.account.readonly
+B,account,GET,/sell/account/v1/payments_program/{marketplace_id}/{payments_program_type}/onboarding,getPaymentsProgramOnboarding,api_scope/sell.account | api_scope/sell.account.readonly
+B,account,GET,/sell/account/v1/privilege,getPrivileges,api_scope/sell.account | api_scope/sell.account.readonly
+B,account,GET,/sell/account/v1/program/get_opted_in_programs,getOptedInPrograms,api_scope/sell.account | api_scope/sell.account.readonly
+B,account,POST,/sell/account/v1/program/opt_in,optInToProgram,api_scope/sell.account
+B,account,POST,/sell/account/v1/program/opt_out,optOutOfProgram,api_scope/sell.account
+B,account,GET,/sell/account/v1/rate_table,getRateTables,api_scope/sell.account | api_scope/sell.account.readonly
+B,account,GET,/sell/account/v1/return_policy,getReturnPolicies,api_scope/sell.account | api_scope/sell.account.readonly
+B,account,POST,/sell/account/v1/return_policy,createReturnPolicy,api_scope/sell.account
+B,account,GET,/sell/account/v1/return_policy/get_by_policy_name,getReturnPolicyByName,api_scope/sell.account | api_scope/sell.account.readonly
+B,account,GET,/sell/account/v1/return_policy/{return_policy_id},getReturnPolicy,api_scope/sell.account | api_scope/sell.account.readonly
+B,account,PUT,/sell/account/v1/return_policy/{return_policy_id},updateReturnPolicy,api_scope/sell.account
+B,account,DELETE,/sell/account/v1/return_policy/{return_policy_id},deleteReturnPolicy,api_scope/sell.account
+B,account,GET,/sell/account/v1/sales_tax,getSalesTaxes,api_scope/sell.account | api_scope/sell.account.readonly
+B,account,GET,/sell/account/v1/sales_tax/{countryCode}/{jurisdictionId},getSalesTax,api_scope/sell.account | api_scope/sell.account.readonly
+B,account,PUT,/sell/account/v1/sales_tax/{countryCode}/{jurisdictionId},createOrReplaceSalesTax,api_scope/sell.account
+B,account,DELETE,/sell/account/v1/sales_tax/{countryCode}/{jurisdictionId},deleteSalesTax,api_scope/sell.account
+B,account,GET,/sell/account/v1/subscription,getSubscription,api_scope/sell.account | api_scope/sell.account.readonly
+B,analytics,GET,/sell/analytics/v1/customer_service_metric/{customer_service_metric_type}/{evaluation_type},getCustomerServiceMetric,api_scope/sell.analytics.readonly
+B,analytics,GET,/sell/analytics/v1/seller_standards_profile,findSellerStandardsProfiles,api_scope/sell.analytics.readonly
+B,analytics,GET,/sell/analytics/v1/seller_standards_profile/{program}/{cycle},getSellerStandardsProfile,api_scope/sell.analytics.readonly
+B,analytics,GET,/sell/analytics/v1/traffic_report,getTrafficReport,api_scope/sell.analytics.readonly
+B,catalog,GET,/commerce/catalog/v1_beta/product/{epid},getProduct,api_scope/commerce.catalog.readonly | api_scope/sell.inventory
+B,catalog,GET,/commerce/catalog/v1_beta/product_summary/search,search,api_scope/commerce.catalog.readonly | api_scope/sell.inventory
+B,developer_analytics,GET,/developer/analytics/v1_beta/user_rate_limit,getUserRateLimits,api_scope/commerce.catalog.readonly | api_scope/sell.inventory | api_scope/sell.inventory.readonly | api_scope/sell.marketing | api_scope/sell.marketing.readonly | api_scope/sell.marketplace.insights.readonly
+B,feed,GET,/sell/feed/v1/customer_service_metric_task,getCustomerServiceMetricTasks,api_scope/sell.analytics.readonly
+B,feed,POST,/sell/feed/v1/customer_service_metric_task,createCustomerServiceMetricTask,api_scope/sell.analytics.readonly
+B,feed,GET,/sell/feed/v1/customer_service_metric_task/{task_id},getCustomerServiceMetricTask,api_scope/sell.analytics.readonly
+B,feed,GET,/sell/feed/v1/inventory_task,getInventoryTasks,api_scope/sell.inventory
+B,feed,POST,/sell/feed/v1/inventory_task,createInventoryTask,api_scope/sell.inventory
+B,feed,GET,/sell/feed/v1/inventory_task/{task_id},getInventoryTask,api_scope/sell.inventory
+B,feed,GET,/sell/feed/v1/order_task,getOrderTasks,api_scope/sell.fulfillment
+B,feed,POST,/sell/feed/v1/order_task,createOrderTask,api_scope/sell.fulfillment
+B,feed,GET,/sell/feed/v1/order_task/{task_id},getOrderTask,api_scope/sell.fulfillment
+B,feed,GET,/sell/feed/v1/schedule,getSchedules,api_scope/commerce.catalog.readonly | api_scope/sell.analytics.readonly | api_scope/sell.fulfillment | api_scope/sell.inventory | api_scope/sell.marketing
+B,feed,POST,/sell/feed/v1/schedule,createSchedule,api_scope/commerce.catalog.readonly | api_scope/sell.analytics.readonly | api_scope/sell.fulfillment | api_scope/sell.inventory | api_scope/sell.marketing
+B,feed,GET,/sell/feed/v1/schedule/{schedule_id},getSchedule,api_scope/commerce.catalog.readonly | api_scope/sell.analytics.readonly | api_scope/sell.fulfillment | api_scope/sell.inventory | api_scope/sell.marketing
+B,feed,PUT,/sell/feed/v1/schedule/{schedule_id},updateSchedule,api_scope/commerce.catalog.readonly | api_scope/sell.analytics.readonly | api_scope/sell.fulfillment | api_scope/sell.inventory | api_scope/sell.marketing
+B,feed,DELETE,/sell/feed/v1/schedule/{schedule_id},deleteSchedule,api_scope/commerce.catalog.readonly | api_scope/sell.analytics.readonly | api_scope/sell.fulfillment | api_scope/sell.inventory | api_scope/sell.marketing
+B,feed,GET,/sell/feed/v1/schedule/{schedule_id}/download_result_file,getLatestResultFile,api_scope/commerce.catalog.readonly | api_scope/sell.analytics.readonly | api_scope/sell.fulfillment | api_scope/sell.inventory | api_scope/sell.marketing
+B,feed,GET,/sell/feed/v1/schedule_template,getScheduleTemplates,api_scope/commerce.catalog.readonly | api_scope/sell.analytics.readonly | api_scope/sell.fulfillment | api_scope/sell.inventory | api_scope/sell.marketing
+B,feed,GET,/sell/feed/v1/schedule_template/{schedule_template_id},getScheduleTemplate,api_scope/commerce.catalog.readonly | api_scope/sell.analytics.readonly | api_scope/sell.fulfillment | api_scope/sell.inventory | api_scope/sell.marketing
+B,feed,GET,/sell/feed/v1/task,getTasks,api_scope/commerce.catalog.readonly | api_scope/sell.analytics.readonly | api_scope/sell.fulfillment | api_scope/sell.inventory | api_scope/sell.marketing
+B,feed,POST,/sell/feed/v1/task,createTask,api_scope/commerce.catalog.readonly | api_scope/sell.analytics.readonly | api_scope/sell.fulfillment | api_scope/sell.inventory | api_scope/sell.marketing
+B,feed,GET,/sell/feed/v1/task/{task_id},getTask,api_scope/commerce.catalog.readonly | api_scope/sell.analytics.readonly | api_scope/sell.fulfillment | api_scope/sell.inventory | api_scope/sell.marketing
+B,feed,GET,/sell/feed/v1/task/{task_id}/download_input_file,getInputFile,api_scope/commerce.catalog.readonly | api_scope/sell.analytics.readonly | api_scope/sell.fulfillment | api_scope/sell.inventory | api_scope/sell.marketing
+B,feed,GET,/sell/feed/v1/task/{task_id}/download_result_file,getResultFile,api_scope/commerce.catalog.readonly | api_scope/sell.analytics.readonly | api_scope/sell.fulfillment | api_scope/sell.inventory | api_scope/sell.marketing
+B,feed,POST,/sell/feed/v1/task/{task_id}/upload_file,uploadFile,api_scope/commerce.catalog.readonly | api_scope/sell.analytics.readonly | api_scope/sell.fulfillment | api_scope/sell.inventory | api_scope/sell.marketing
+B,feedback,GET,/commerce/feedback/v1/awaiting_feedback,getItemsAwaitingFeedback,api_scope/commerce.feedback
+B,feedback,POST,/commerce/feedback/v1/feedback,leaveFeedback,api_scope/commerce.feedback
+B,feedback,POST,/commerce/feedback/v1/respond_to_feedback,respondToFeedback,api_scope/commerce.feedback
+B,finances,GET,/sell/finances/v1/billing_activity,getBillingActivities,api_scope/sell.finances
+B,finances,GET,/sell/finances/v1/payout,getPayouts,eBayUser | api_scope/sell.finances
+B,finances,GET,/sell/finances/v1/payout/{payout_Id},getPayout,api_scope/sell.finances
+B,finances,GET,/sell/finances/v1/payout/{payout_id},getPayout,eBayUser | api_scope/sell.finances
+B,finances,GET,/sell/finances/v1/payout_summary,getPayoutSummary,eBayUser | api_scope/sell.finances
+B,finances,GET,/sell/finances/v1/seller_funds_summary,getSellerFundsSummary,eBayUser | api_scope/sell.finances
+B,finances,GET,/sell/finances/v1/transaction,getTransactions,eBayUser | api_scope/sell.finances
+B,finances,GET,/sell/finances/v1/transaction_summary,getTransactionSummary,eBayUser | api_scope/sell.finances
+B,finances,GET,/sell/finances/v1/transfer/{transfer_Id},getTransfer,api_scope/sell.finances
+B,finances,GET,/sell/finances/v1/transfer/{transfer_id},getTransfer,eBayUser | api_scope/sell.finances
+B,fulfillment,GET,/sell/fulfillment/v1/order,getOrders,api_scope/sell.fulfillment | api_scope/sell.fulfillment.readonly
+B,fulfillment,GET,/sell/fulfillment/v1/order/{orderId},getOrder,api_scope/sell.fulfillment | api_scope/sell.fulfillment.readonly
+B,fulfillment,GET,/sell/fulfillment/v1/order/{orderId}/shipping_fulfillment,getShippingFulfillments,api_scope/sell.fulfillment | api_scope/sell.fulfillment.readonly
+B,fulfillment,POST,/sell/fulfillment/v1/order/{orderId}/shipping_fulfillment,createShippingFulfillment,api_scope/sell.fulfillment
+B,fulfillment,GET,/sell/fulfillment/v1/order/{orderId}/shipping_fulfillment/{fulfillmentId},getShippingFulfillment,api_scope/sell.fulfillment | api_scope/sell.fulfillment.readonly
+B,fulfillment,POST,/sell/fulfillment/v1/order/{order_id}/issue_refund,issueRefund,eBayUser | api_scope/sell.finances
+B,fulfillment,GET,/sell/fulfillment/v1/payment_dispute/{payment_dispute_id},getPaymentDispute,api_scope/sell.payment.dispute
+B,fulfillment,POST,/sell/fulfillment/v1/payment_dispute/{payment_dispute_id}/accept,acceptPaymentDispute,api_scope/sell.payment.dispute
+B,fulfillment,GET,/sell/fulfillment/v1/payment_dispute/{payment_dispute_id}/activity,getActivities,api_scope/sell.payment.dispute
+B,fulfillment,POST,/sell/fulfillment/v1/payment_dispute/{payment_dispute_id}/add_evidence,addEvidence,api_scope/sell.payment.dispute
+B,fulfillment,POST,/sell/fulfillment/v1/payment_dispute/{payment_dispute_id}/contest,contestPaymentDispute,api_scope/sell.payment.dispute
+B,fulfillment,GET,/sell/fulfillment/v1/payment_dispute/{payment_dispute_id}/fetch_evidence_content,fetchEvidenceContent,api_scope/sell.payment.dispute
+B,fulfillment,POST,/sell/fulfillment/v1/payment_dispute/{payment_dispute_id}/update_evidence,updateEvidence,api_scope/sell.payment.dispute
+B,fulfillment,POST,/sell/fulfillment/v1/payment_dispute/{payment_dispute_id}/upload_evidence_file,uploadEvidenceFile,api_scope/sell.payment.dispute
+B,fulfillment,GET,/sell/fulfillment/v1/payment_dispute_summary,getPaymentDisputeSummaries,api_scope/sell.payment.dispute
+B,identity,GET,/commerce/identity/v1/user/,getUser,api_scope/commerce.identity.address.readonly | api_scope/commerce.identity.email.readonly | api_scope/commerce.identity.name.readonly | api_scope/commerce.identity.phone.readonly | api_scope/commerce.identity.readonly | api_scope/commerce.identity.status.readonly
+B,inventory,POST,/sell/inventory/v1/bulk_create_offer,bulkCreateOffer,api_scope/sell.inventory
+B,inventory,POST,/sell/inventory/v1/bulk_create_or_replace_inventory_item,bulkCreateOrReplaceInventoryItem,api_scope/sell.inventory
+B,inventory,POST,/sell/inventory/v1/bulk_get_inventory_item,bulkGetInventoryItem,api_scope/sell.inventory | api_scope/sell.inventory.readonly
+B,inventory,POST,/sell/inventory/v1/bulk_migrate_listing,bulkMigrateListing,api_scope/sell.inventory
+B,inventory,POST,/sell/inventory/v1/bulk_publish_offer,bulkPublishOffer,api_scope/sell.inventory
+B,inventory,POST,/sell/inventory/v1/bulk_update_price_quantity,bulkUpdatePriceQuantity,api_scope/sell.inventory
+B,inventory,GET,/sell/inventory/v1/inventory_item,getInventoryItems,api_scope/sell.inventory | api_scope/sell.inventory.readonly
+B,inventory,GET,/sell/inventory/v1/inventory_item/{sku},getInventoryItem,api_scope/sell.inventory | api_scope/sell.inventory.readonly
+B,inventory,PUT,/sell/inventory/v1/inventory_item/{sku},createOrReplaceInventoryItem,api_scope/sell.inventory
+B,inventory,DELETE,/sell/inventory/v1/inventory_item/{sku},deleteInventoryItem,api_scope/sell.inventory
+B,inventory,GET,/sell/inventory/v1/inventory_item/{sku}/product_compatibility,getProductCompatibility,api_scope/sell.inventory | api_scope/sell.inventory.readonly
+B,inventory,PUT,/sell/inventory/v1/inventory_item/{sku}/product_compatibility,createOrReplaceProductCompatibility,api_scope/sell.inventory
+B,inventory,DELETE,/sell/inventory/v1/inventory_item/{sku}/product_compatibility,deleteProductCompatibility,api_scope/sell.inventory
+B,inventory,GET,/sell/inventory/v1/inventory_item_group/{inventoryItemGroupKey},getInventoryItemGroup,api_scope/sell.inventory | api_scope/sell.inventory.readonly
+B,inventory,PUT,/sell/inventory/v1/inventory_item_group/{inventoryItemGroupKey},createOrReplaceInventoryItemGroup,api_scope/sell.inventory
+B,inventory,DELETE,/sell/inventory/v1/inventory_item_group/{inventoryItemGroupKey},deleteInventoryItemGroup,api_scope/sell.inventory
+B,inventory,GET,/sell/inventory/v1/listing/{listingId}/sku/{sku}/locations,getSkuLocationMapping,api_scope/sell.inventory | api_scope/sell.inventory.readonly
+B,inventory,PUT,/sell/inventory/v1/listing/{listingId}/sku/{sku}/locations,createOrReplaceSkuLocationMapping,api_scope/sell.inventory
+B,inventory,DELETE,/sell/inventory/v1/listing/{listingId}/sku/{sku}/locations,deleteSkuLocationMapping,api_scope/sell.inventory
+B,inventory,GET,/sell/inventory/v1/location,getInventoryLocations,api_scope/sell.inventory | api_scope/sell.inventory.readonly
+B,inventory,GET,/sell/inventory/v1/location/{merchantLocationKey},getInventoryLocation,api_scope/sell.inventory | api_scope/sell.inventory.readonly
+B,inventory,POST,/sell/inventory/v1/location/{merchantLocationKey},createInventoryLocation,api_scope/sell.inventory
+B,inventory,DELETE,/sell/inventory/v1/location/{merchantLocationKey},deleteInventoryLocation,api_scope/sell.inventory
+B,inventory,POST,/sell/inventory/v1/location/{merchantLocationKey}/disable,disableInventoryLocation,api_scope/sell.inventory
+B,inventory,POST,/sell/inventory/v1/location/{merchantLocationKey}/enable,enableInventoryLocation,api_scope/sell.inventory
+B,inventory,POST,/sell/inventory/v1/location/{merchantLocationKey}/update_location_details,updateInventoryLocation,api_scope/sell.inventory
+B,inventory,GET,/sell/inventory/v1/offer,getOffers,api_scope/sell.inventory | api_scope/sell.inventory.readonly
+B,inventory,POST,/sell/inventory/v1/offer,createOffer,api_scope/sell.inventory
+B,inventory,POST,/sell/inventory/v1/offer/get_listing_fees,getListingFees,api_scope/sell.inventory | api_scope/sell.inventory.readonly
+B,inventory,POST,/sell/inventory/v1/offer/publish_by_inventory_item_group,publishOfferByInventoryItemGroup,api_scope/sell.inventory
+B,inventory,POST,/sell/inventory/v1/offer/withdraw_by_inventory_item_group,withdrawOfferByInventoryItemGroup,api_scope/sell.inventory
+B,inventory,GET,/sell/inventory/v1/offer/{offerId},getOffer,api_scope/sell.inventory | api_scope/sell.inventory.readonly
+B,inventory,PUT,/sell/inventory/v1/offer/{offerId},updateOffer,api_scope/sell.inventory
+B,inventory,DELETE,/sell/inventory/v1/offer/{offerId},deleteOffer,api_scope/sell.inventory
+B,inventory,POST,/sell/inventory/v1/offer/{offerId}/publish,publishOffer,api_scope/sell.inventory
+B,inventory,POST,/sell/inventory/v1/offer/{offerId}/withdraw,withdrawOffer,api_scope/sell.inventory
+B,marketing,GET,/sell/marketing/v1/ad_campaign,getCampaigns,api_scope/sell.marketing | api_scope/sell.marketing.readonly
+B,marketing,POST,/sell/marketing/v1/ad_campaign,createCampaign,api_scope/sell.marketing
+B,marketing,GET,/sell/marketing/v1/ad_campaign/find_campaign_by_ad_reference,findCampaignByAdReference,api_scope/sell.marketing | api_scope/sell.marketing.readonly
+B,marketing,GET,/sell/marketing/v1/ad_campaign/get_campaign_by_name,getCampaignByName,api_scope/sell.marketing | api_scope/sell.marketing.readonly
+B,marketing,GET,/sell/marketing/v1/ad_campaign/suggest_budget,suggestBudget,api_scope/sell.marketing
+B,marketing,POST,/sell/marketing/v1/ad_campaign/suggest_max_cpc,suggestMaxCpc,api_scope/sell.marketing
+B,marketing,GET,/sell/marketing/v1/ad_campaign/{campaign_id},getCampaign,api_scope/sell.marketing | api_scope/sell.marketing.readonly
+B,marketing,DELETE,/sell/marketing/v1/ad_campaign/{campaign_id},deleteCampaign,api_scope/sell.marketing
+B,marketing,GET,/sell/marketing/v1/ad_campaign/{campaign_id}/ad,getAds,api_scope/sell.marketing | api_scope/sell.marketing.readonly
+B,marketing,POST,/sell/marketing/v1/ad_campaign/{campaign_id}/ad,createAdByListingId,api_scope/sell.marketing
+B,marketing,GET,/sell/marketing/v1/ad_campaign/{campaign_id}/ad/{ad_id},getAd,api_scope/sell.marketing | api_scope/sell.marketing.readonly
+B,marketing,DELETE,/sell/marketing/v1/ad_campaign/{campaign_id}/ad/{ad_id},deleteAd,api_scope/sell.marketing
+B,marketing,POST,/sell/marketing/v1/ad_campaign/{campaign_id}/ad/{ad_id}/update_bid,updateBid,api_scope/sell.marketing
+B,marketing,GET,/sell/marketing/v1/ad_campaign/{campaign_id}/ad_group,getAdGroups,api_scope/sell.marketing | api_scope/sell.marketing.readonly
+B,marketing,POST,/sell/marketing/v1/ad_campaign/{campaign_id}/ad_group,createAdGroup,api_scope/sell.marketing
+B,marketing,GET,/sell/marketing/v1/ad_campaign/{campaign_id}/ad_group/{ad_group_id},getAdGroup,api_scope/sell.marketing | api_scope/sell.marketing.readonly
+B,marketing,PUT,/sell/marketing/v1/ad_campaign/{campaign_id}/ad_group/{ad_group_id},updateAdGroup,api_scope/sell.marketing
+B,marketing,POST,/sell/marketing/v1/ad_campaign/{campaign_id}/ad_group/{ad_group_id}/suggest_bids,suggestBids,api_scope/sell.marketing
+B,marketing,POST,/sell/marketing/v1/ad_campaign/{campaign_id}/ad_group/{ad_group_id}/suggest_keywords,suggestKeywords,api_scope/sell.marketing
+B,marketing,POST,/sell/marketing/v1/ad_campaign/{campaign_id}/bulk_create_ads_by_inventory_reference,bulkCreateAdsByInventoryReference,api_scope/sell.marketing
+B,marketing,POST,/sell/marketing/v1/ad_campaign/{campaign_id}/bulk_create_ads_by_listing_id,bulkCreateAdsByListingId,api_scope/sell.marketing
+B,marketing,POST,/sell/marketing/v1/ad_campaign/{campaign_id}/bulk_create_keyword,bulkCreateKeyword,api_scope/sell.marketing
+B,marketing,POST,/sell/marketing/v1/ad_campaign/{campaign_id}/bulk_delete_ads_by_inventory_reference,bulkDeleteAdsByInventoryReference,api_scope/sell.marketing
+B,marketing,POST,/sell/marketing/v1/ad_campaign/{campaign_id}/bulk_delete_ads_by_listing_id,bulkDeleteAdsByListingId,api_scope/sell.marketing
+B,marketing,POST,/sell/marketing/v1/ad_campaign/{campaign_id}/bulk_update_ads_bid_by_inventory_reference,bulkUpdateAdsBidByInventoryReference,api_scope/sell.marketing
+B,marketing,POST,/sell/marketing/v1/ad_campaign/{campaign_id}/bulk_update_ads_bid_by_listing_id,bulkUpdateAdsBidByListingId,api_scope/sell.marketing
+B,marketing,POST,/sell/marketing/v1/ad_campaign/{campaign_id}/bulk_update_ads_status,bulkUpdateAdsStatus,api_scope/sell.marketing
+B,marketing,POST,/sell/marketing/v1/ad_campaign/{campaign_id}/bulk_update_ads_status_by_listing_id,bulkUpdateAdsStatusByListingId,api_scope/sell.marketing
+B,marketing,POST,/sell/marketing/v1/ad_campaign/{campaign_id}/bulk_update_keyword,bulkUpdateKeyword,api_scope/sell.marketing
+B,marketing,PUT,/sell/marketing/v1/ad_campaign/{campaign_id}/bulk_upsert_video_ads_preferences,bulkUpsertVideoAdsPreferences,api_scope/sell.marketing
+B,marketing,POST,/sell/marketing/v1/ad_campaign/{campaign_id}/clone,cloneCampaign,api_scope/sell.marketing
+B,marketing,POST,/sell/marketing/v1/ad_campaign/{campaign_id}/create_ads_by_inventory_reference,createAdsByInventoryReference,api_scope/sell.marketing
+B,marketing,POST,/sell/marketing/v1/ad_campaign/{campaign_id}/delete_ads_by_inventory_reference,deleteAdsByInventoryReference,api_scope/sell.marketing
+B,marketing,POST,/sell/marketing/v1/ad_campaign/{campaign_id}/end,endCampaign,api_scope/sell.marketing
+B,marketing,GET,/sell/marketing/v1/ad_campaign/{campaign_id}/get_ads_by_inventory_reference,getAdsByInventoryReference,api_scope/sell.marketing | api_scope/sell.marketing.readonly
+B,marketing,GET,/sell/marketing/v1/ad_campaign/{campaign_id}/keyword,getKeywords,api_scope/sell.marketing | api_scope/sell.marketing.readonly
+B,marketing,POST,/sell/marketing/v1/ad_campaign/{campaign_id}/keyword,createKeyword,api_scope/sell.marketing
+B,marketing,GET,/sell/marketing/v1/ad_campaign/{campaign_id}/keyword/{keyword_id},getKeyword,api_scope/sell.marketing | api_scope/sell.marketing.readonly
+B,marketing,PUT,/sell/marketing/v1/ad_campaign/{campaign_id}/keyword/{keyword_id},updateKeyword,api_scope/sell.marketing
+B,marketing,POST,/sell/marketing/v1/ad_campaign/{campaign_id}/pause,pauseCampaign,api_scope/sell.marketing
+B,marketing,POST,/sell/marketing/v1/ad_campaign/{campaign_id}/resume,resumeCampaign,api_scope/sell.marketing
+B,marketing,GET,/sell/marketing/v1/ad_campaign/{campaign_id}/suggest_items,suggestItems,api_scope/sell.marketing
+B,marketing,POST,/sell/marketing/v1/ad_campaign/{campaign_id}/update_ad_rate_strategy,updateAdRateStrategy,api_scope/sell.marketing
+B,marketing,POST,/sell/marketing/v1/ad_campaign/{campaign_id}/update_bidding_strategy,updateBiddingStrategy,api_scope/sell.marketing
+B,marketing,POST,/sell/marketing/v1/ad_campaign/{campaign_id}/update_campaign_budget,updateCampaignBudget,api_scope/sell.marketing
+B,marketing,POST,/sell/marketing/v1/ad_campaign/{campaign_id}/update_campaign_identification,updateCampaignIdentification,api_scope/sell.marketing
+B,marketing,PUT,/sell/marketing/v1/ad_campaign/{campaign_id}/upsert_video_ads_preferences,upsertVideoAdsPreferences,api_scope/sell.marketing
+B,marketing,GET,/sell/marketing/v1/ad_report/{report_id},getReport,api_scope/sell.marketing
+B,marketing,GET,/sell/marketing/v1/ad_report_task,getReportTasks,api_scope/sell.marketing
+B,marketing,POST,/sell/marketing/v1/ad_report_task,createReportTask,api_scope/sell.marketing
+B,marketing,GET,/sell/marketing/v1/ad_report_task/{report_task_id},getReportTask,api_scope/sell.marketing
+B,marketing,DELETE,/sell/marketing/v1/ad_report_task/{report_task_id},deleteReportTask,api_scope/sell.marketing
+B,marketing,POST,/sell/marketing/v1/bulk_create_negative_keyword,bulkCreateNegativeKeyword,api_scope/sell.marketing
+B,marketing,POST,/sell/marketing/v1/bulk_update_negative_keyword,bulkUpdateNegativeKeyword,api_scope/sell.marketing
+B,marketing,GET,/sell/marketing/v1/email_campaign,getEmailCampaigns,api_scope/sell.marketing
+B,marketing,POST,/sell/marketing/v1/email_campaign,createEmailCampaign,api_scope/sell.marketing
+B,marketing,GET,/sell/marketing/v1/email_campaign/audience,getAudiences,api_scope/sell.marketing
+B,marketing,GET,/sell/marketing/v1/email_campaign/report,getEmailReport,api_scope/sell.marketing
+B,marketing,GET,/sell/marketing/v1/email_campaign/{email_campaign_id},getEmailCampaign,api_scope/sell.marketing
+B,marketing,PUT,/sell/marketing/v1/email_campaign/{email_campaign_id},updateEmailCampaign,api_scope/sell.marketing
+B,marketing,DELETE,/sell/marketing/v1/email_campaign/{email_campaign_id},deleteEmailCampaign,api_scope/sell.marketing
+B,marketing,GET,/sell/marketing/v1/email_campaign/{email_campaign_id}/email_preview,getEmailPreview,api_scope/sell.marketing
+B,marketing,POST,/sell/marketing/v1/item_price_markdown,createItemPriceMarkdownPromotion,api_scope/sell.marketing
+B,marketing,GET,/sell/marketing/v1/item_price_markdown/{promotion_id},getItemPriceMarkdownPromotion,api_scope/sell.marketing | api_scope/sell.marketing.readonly
+B,marketing,PUT,/sell/marketing/v1/item_price_markdown/{promotion_id},updateItemPriceMarkdownPromotion,api_scope/sell.marketing
+B,marketing,DELETE,/sell/marketing/v1/item_price_markdown/{promotion_id},deleteItemPriceMarkdownPromotion,api_scope/sell.marketing
+B,marketing,POST,/sell/marketing/v1/item_promotion,createItemPromotion,api_scope/sell.marketing
+B,marketing,GET,/sell/marketing/v1/item_promotion/{promotion_id},getItemPromotion,api_scope/sell.marketing | api_scope/sell.marketing.readonly
+B,marketing,PUT,/sell/marketing/v1/item_promotion/{promotion_id},updateItemPromotion,api_scope/sell.marketing
+B,marketing,DELETE,/sell/marketing/v1/item_promotion/{promotion_id},deleteItemPromotion,api_scope/sell.marketing
+B,marketing,GET,/sell/marketing/v1/negative_keyword,getNegativeKeywords,api_scope/sell.marketing | api_scope/sell.marketing.readonly
+B,marketing,POST,/sell/marketing/v1/negative_keyword,createNegativeKeyword,api_scope/sell.marketing
+B,marketing,GET,/sell/marketing/v1/negative_keyword/{negative_keyword_id},getNegativeKeyword,api_scope/sell.marketing | api_scope/sell.marketing.readonly
+B,marketing,PUT,/sell/marketing/v1/negative_keyword/{negative_keyword_id},updateNegativeKeyword,api_scope/sell.marketing
+B,marketing,GET,/sell/marketing/v1/promotion,getPromotions,api_scope/sell.marketing | api_scope/sell.marketing.readonly
+B,marketing,GET,/sell/marketing/v1/promotion/{promotion_id}/get_listing_set,getListingSet,api_scope/sell.marketing | api_scope/sell.marketing.readonly
+B,marketing,POST,/sell/marketing/v1/promotion/{promotion_id}/pause,pausePromotion,api_scope/sell.marketing
+B,marketing,POST,/sell/marketing/v1/promotion/{promotion_id}/resume,resumePromotion,api_scope/sell.marketing
+B,marketing,GET,/sell/marketing/v1/promotion_report,getPromotionReports,api_scope/sell.marketing | api_scope/sell.marketing.readonly
+B,marketing,GET,/sell/marketing/v1/promotion_summary_report,getPromotionSummaryReport,api_scope/sell.marketing | api_scope/sell.marketing.readonly
+B,marketing,GET,/sell/marketing/v1/seller_promotional_offers,getSellerPromotionalOffers,api_scope/sell.marketing.readonly
+B,marketing,POST,/sell/marketing/v1/seller_promotional_offers/activate_promotion,activatePromotion,api_scope/sell.marketing
+B,media,POST,/commerce/media/v1_beta/document,createDocument,api_scope/sell.inventory
+B,media,POST,/commerce/media/v1_beta/document/create_document_from_url,createDocumentFromUrl,api_scope/sell.inventory
+B,media,GET,/commerce/media/v1_beta/document/{document_id},getDocument,api_scope/sell.inventory
+B,media,POST,/commerce/media/v1_beta/document/{document_id}/upload,uploadDocument,api_scope/sell.inventory
+B,media,POST,/commerce/media/v1_beta/image/create_image_from_file,createImageFromFile,api_scope/sell.inventory
+B,media,POST,/commerce/media/v1_beta/image/create_image_from_url,createImageFromUrl,api_scope/sell.inventory
+B,media,GET,/commerce/media/v1_beta/image/{image_id},getImage,api_scope/sell.inventory
+B,media,POST,/commerce/media/v1_beta/video,createVideo,api_scope/sell.inventory
+B,media,GET,/commerce/media/v1_beta/video/{video_id},getVideo,api_scope/sell.inventory
+B,media,POST,/commerce/media/v1_beta/video/{video_id}/upload,uploadVideo,api_scope/sell.inventory
+B,message,POST,/commerce/message/v1/bulk_update_conversation,bulkUpdateConversation,api_scope/commerce.message
+B,message,GET,/commerce/message/v1/conversation,getConversations,api_scope/commerce.message
+B,message,GET,/commerce/message/v1/conversation/{conversation_id},getConversation,api_scope/commerce.message
+B,message,POST,/commerce/message/v1/send_message,sendMessage,api_scope/commerce.message
+B,message,POST,/commerce/message/v1/update_conversation,updateConversation,api_scope/commerce.message
+B,recommendation,POST,/sell/recommendation/v1/find,findListingRecommendations,api_scope/sell.inventory
+B,stores,GET,/sell/stores/v1/store,getStore,eBayUser | api_scope/sell.stores
+B,stores,GET,/sell/stores/v1/store/categories,getStoreCategories,eBayUser | api_scope/sell.stores
+B,stores,POST,/sell/stores/v1/store/categories,addStoreCategory,eBayUser | api_scope/sell.stores
+B,stores,POST,/sell/stores/v1/store/categories/move_category,moveStoreCategory,eBayUser | api_scope/sell.stores
+B,stores,PUT,/sell/stores/v1/store/categories/{category_id},renameStoreCategory,eBayUser | api_scope/sell.stores
+B,stores,DELETE,/sell/stores/v1/store/categories/{category_id},deleteStoreCategory,eBayUser | api_scope/sell.stores
+B,stores,GET,/sell/stores/v1/store/tasks,getStoreTasks,eBayUser | api_scope/sell.stores
+B,stores,GET,/sell/stores/v1/store/tasks/{task_id},getStoreTask,eBayUser | api_scope/sell.stores
+B,vero,POST,/commerce/vero/v2/report_vero_violations,reportVeroViolations,api_scope/commerce.vero
+B,vero,GET,/commerce/vero/v2/vero_reason_code,getVeroReasonCodes,api_scope/commerce.vero
+B,vero,GET,/commerce/vero/v2/vero_reason_code/{vero_reason_code_id},getVeroReasonCode,api_scope/commerce.vero
+B,vero,GET,/commerce/vero/v2/vero_report/{vero_report_id},getVeroReport,api_scope/commerce.vero
+B,vero,GET,/commerce/vero/v2/vero_report_items,getVeroReportItems,api_scope/commerce.vero
+X,browse,GET,/buy/browse/v1/item,getItems,api_scope/buy.item.bulk
+X,deal,GET,/buy/deal/v1/deal_item,getDealItems,api_scope/buy.deal
+X,deal,GET,/buy/deal/v1/event,getEvents,api_scope/buy.deal
+X,deal,GET,/buy/deal/v1/event/{event_id},getEvent,api_scope/buy.deal
+X,deal,GET,/buy/deal/v1/event_item,getEventItems,api_scope/buy.deal
+X,edelivery_international_shipping,GET,/sell/edelivery_international_shipping/v1/actual_costs,getActualCosts,https://api.ebay.com/oauth/scope/sell.edelivery
+X,edelivery_international_shipping,GET,/sell/edelivery_international_shipping/v1/address_preference,getAddressPreferences,https://api.ebay.com/oauth/scope/sell.edelivery
+X,edelivery_international_shipping,POST,/sell/edelivery_international_shipping/v1/address_preference,createAddressPreference,https://api.ebay.com/oauth/scope/sell.edelivery
+X,edelivery_international_shipping,GET,/sell/edelivery_international_shipping/v1/agents,getAgents,https://api.ebay.com/oauth/scope/sell.edelivery
+X,edelivery_international_shipping,GET,/sell/edelivery_international_shipping/v1/battery_qualifications,getBatteryQualifications,https://api.ebay.com/oauth/scope/sell.edelivery
+X,edelivery_international_shipping,POST,/sell/edelivery_international_shipping/v1/bundle,createBundle,https://api.ebay.com/oauth/scope/sell.edelivery
+X,edelivery_international_shipping,GET,/sell/edelivery_international_shipping/v1/bundle/{bundle_id},getBundle,https://api.ebay.com/oauth/scope/sell.edelivery
+X,edelivery_international_shipping,POST,/sell/edelivery_international_shipping/v1/bundle/{bundle_id}/cancel,cancelBundle,https://api.ebay.com/oauth/scope/sell.edelivery
+X,edelivery_international_shipping,GET,/sell/edelivery_international_shipping/v1/bundle/{bundle_id}/label,getBundleLabel,https://api.ebay.com/oauth/scope/sell.edelivery
+X,edelivery_international_shipping,POST,/sell/edelivery_international_shipping/v1/complaint,createComplaint,https://api.ebay.com/oauth/scope/sell.edelivery
+X,edelivery_international_shipping,GET,/sell/edelivery_international_shipping/v1/consign_preference,getConsignPreferences,https://api.ebay.com/oauth/scope/sell.edelivery
+X,edelivery_international_shipping,POST,/sell/edelivery_international_shipping/v1/consign_preference,createConsignPreference,https://api.ebay.com/oauth/scope/sell.edelivery
+X,edelivery_international_shipping,GET,/sell/edelivery_international_shipping/v1/cpsc_profiles,getCpscProfiles,https://api.ebay.com/oauth/scope/sell.edelivery
+X,edelivery_international_shipping,GET,/sell/edelivery_international_shipping/v1/dropoff_sites,getDropoffSites,https://api.ebay.com/oauth/scope/sell.edelivery
+X,edelivery_international_shipping,GET,/sell/edelivery_international_shipping/v1/handover_sheet,getHandoverSheet,https://api.ebay.com/oauth/scope/sell.edelivery
+X,edelivery_international_shipping,GET,/sell/edelivery_international_shipping/v1/labels,getLabels,https://api.ebay.com/oauth/scope/sell.edelivery
+X,edelivery_international_shipping,POST,/sell/edelivery_international_shipping/v1/package,createPackage,https://api.ebay.com/oauth/scope/sell.edelivery
+X,edelivery_international_shipping,POST,/sell/edelivery_international_shipping/v1/package/bulk_cancel_packages,bulkCancelPackages,https://api.ebay.com/oauth/scope/sell.edelivery
+X,edelivery_international_shipping,POST,/sell/edelivery_international_shipping/v1/package/bulk_confirm_packages,bulkConfirmPackages,https://api.ebay.com/oauth/scope/sell.edelivery
+X,edelivery_international_shipping,POST,/sell/edelivery_international_shipping/v1/package/bulk_delete_packages,bulkDeletePackages,https://api.ebay.com/oauth/scope/sell.edelivery
+X,edelivery_international_shipping,GET,/sell/edelivery_international_shipping/v1/package/{order_line_item_id}/item,getPackagesByLineItemID,https://api.ebay.com/oauth/scope/sell.edelivery
+X,edelivery_international_shipping,GET,/sell/edelivery_international_shipping/v1/package/{package_id},getPackage,https://api.ebay.com/oauth/scope/sell.edelivery
+X,edelivery_international_shipping,DELETE,/sell/edelivery_international_shipping/v1/package/{package_id},deletePackage,https://api.ebay.com/oauth/scope/sell.edelivery
+X,edelivery_international_shipping,POST,/sell/edelivery_international_shipping/v1/package/{package_id}/cancel,cancelPackage,https://api.ebay.com/oauth/scope/sell.edelivery
+X,edelivery_international_shipping,POST,/sell/edelivery_international_shipping/v1/package/{package_id}/clone,clonePackage,https://api.ebay.com/oauth/scope/sell.edelivery
+X,edelivery_international_shipping,POST,/sell/edelivery_international_shipping/v1/package/{package_id}/confirm,confirmPackage,https://api.ebay.com/oauth/scope/sell.edelivery
+X,edelivery_international_shipping,GET,/sell/edelivery_international_shipping/v1/services,getServices,https://api.ebay.com/oauth/scope/sell.edelivery
+X,edelivery_international_shipping,GET,/sell/edelivery_international_shipping/v1/tracking,getTracking,https://api.ebay.com/oauth/scope/sell.edelivery
+X,finances,GET,/sell/finances/v1/order_earnings,getOrderEarnings,eBayUser | api_scope/sell.finances.earnings.read
+X,finances,GET,/sell/finances/v1/order_earnings/{order_id},getOrderEarningsById,eBayUser | api_scope/sell.finances.earnings.read
+X,finances,GET,/sell/finances/v1/order_earnings_summary,getOrderEarningsSummary,eBayUser | api_scope/sell.finances.earnings.read
+X,leads,GET,/sell/leads/v1/classified_lead,getAllClassifiedLeads,api_scope/sell.leads
+X,leads,GET,/sell/leads/v1/classified_lead/{itemId},getClassifiedLeadsByItemId,api_scope/sell.leads
+X,logistics,POST,/sell/logistics/v1_beta/shipment/create_from_shipping_quote,createFromShippingQuote,api_scope/sell.logistics
+X,logistics,GET,/sell/logistics/v1_beta/shipment/{shipmentId},getShipment,api_scope/sell.logistics
+X,logistics,POST,/sell/logistics/v1_beta/shipment/{shipmentId}/cancel,cancelShipment,api_scope/sell.logistics
+X,logistics,GET,/sell/logistics/v1_beta/shipment/{shipmentId}/download_label_file,downloadLabelFile,api_scope/sell.logistics
+X,logistics,POST,/sell/logistics/v1_beta/shipping_quote,createShippingQuote,api_scope/sell.logistics
+X,logistics,GET,/sell/logistics/v1_beta/shipping_quote/{shippingQuoteId},getShippingQuote,api_scope/sell.logistics
+X,marketplace_insights,GET,/buy/marketplace_insights/v1_beta/item_sales/search,search,api_scope/buy.marketplace.insights
+X,media,POST,/commerce/media/v1_beta/post_order/document,uploadPostOrderDocument,api_scope/commerce.post_order.document
+X,media,GET,/commerce/media/v1_beta/post_order/document/{document_id},downloadPostOrderDocument,api_scope/commerce.post_order.document
+X,media,DELETE,/commerce/media/v1_beta/post_order/document/{document_id},removePostOrderDocument,api_scope/commerce.post_order.document
+X,negotiation,GET,/sell/negotiation/v1/find_eligible_items,findEligibleItems,
+X,negotiation,POST,/sell/negotiation/v1/send_offer_to_interested_buyers,sendOfferToInterestedBuyers,
+X,offer,GET,/buy/offer/v1_beta/bidding/{item_id},getBidding,api_scope/buy.offer.auction
+X,offer,POST,/buy/offer/v1_beta/bidding/{item_id}/place_proxy_bid,placeProxyBid,api_scope/buy.offer.auction
+X,order,POST,/buy/order/v1/checkout_session/initiate,initiateCheckoutSession,api_scope/buy.order
+X,order,GET,/buy/order/v1/checkout_session/{checkoutSessionId},getCheckoutSession,api_scope/buy.order
+X,order,POST,/buy/order/v1/checkout_session/{checkoutSessionId}/apply_coupon,applyCoupon,api_scope/buy.order
+X,order,POST,/buy/order/v1/checkout_session/{checkoutSessionId}/place_order,placeOrder,api_scope/buy.order
+X,order,POST,/buy/order/v1/checkout_session/{checkoutSessionId}/remove_coupon,removeCoupon,api_scope/buy.order
+X,order,POST,/buy/order/v1/checkout_session/{checkoutSessionId}/update_add_on_services_status,updateAddonServicesStatus,api_scope/buy.order
+X,order,POST,/buy/order/v1/checkout_session/{checkoutSessionId}/update_quantity,updateQuantity,api_scope/buy.order
+X,order,POST,/buy/order/v1/checkout_session/{checkoutSessionId}/update_shipping_address,updateShippingAddress,api_scope/buy.order
+X,order,POST,/buy/order/v1/checkout_session/{checkoutSessionId}/update_shipping_option,updateShippingOption,api_scope/buy.order
+X,order,GET,/buy/order/v1/purchase_order/{purchaseOrderId},getPurchaseOrder,api_scope/buy.order | api_scope/buy.order.readonly
+X,post_order,POST,/post-order/v2/post-order/v2/cancellation,createCancellationRequest,
+X,post_order,POST,/post-order/v2/post-order/v2/cancellation/check_eligibility,checkCancellationEligibility,
+X,post_order,GET,/post-order/v2/post-order/v2/cancellation/search,searchCancellations,
+X,post_order,GET,/post-order/v2/post-order/v2/cancellation/{cancelId},getCancellation,
+X,post_order,POST,/post-order/v2/post-order/v2/cancellation/{cancelId}/approve,approveCancellation,https://api.ebay.com/oauth/scope/sell@user
+X,post_order,POST,/post-order/v2/post-order/v2/cancellation/{cancelId}/confirm,confirm,
+X,post_order,POST,/post-order/v2/post-order/v2/cancellation/{cancelId}/reject,rejectCancellation,https://api.ebay.com/oauth/scope/sell@user
+X,post_order,GET,/post-order/v2/post-order/v2/casemanagement/search,searchCases,
+X,post_order,GET,/post-order/v2/post-order/v2/casemanagement/{caseId},getCase,
+X,post_order,POST,/post-order/v2/post-order/v2/casemanagement/{caseId}/appeal,appealCaseDecision,
+X,post_order,POST,/post-order/v2/post-order/v2/casemanagement/{caseId}/close,closeCase,
+X,post_order,POST,/post-order/v2/post-order/v2/casemanagement/{caseId}/issue_refund,issueCaseRefund,https://api.ebay.com/oauth/scope/sell@user
+X,post_order,POST,/post-order/v2/post-order/v2/casemanagement/{caseId}/provide_return_address,provideCaseReturnAddress,https://api.ebay.com/oauth/scope/sell@user
+X,post_order,POST,/post-order/v2/post-order/v2/casemanagement/{caseId}/provide_shipment_info,provideCaseShipmentInfo,
+X,post_order,POST,/post-order/v2/post-order/v2/inquiry/,createInquiry,
+X,post_order,GET,/post-order/v2/post-order/v2/inquiry/search,searchInquiries,
+X,post_order,GET,/post-order/v2/post-order/v2/inquiry/{inquiryId},getInquiry,
+X,post_order,POST,/post-order/v2/post-order/v2/inquiry/{inquiryId}/close,closeInquiry,
+X,post_order,POST,/post-order/v2/post-order/v2/inquiry/{inquiryId}/confirm_refund,confirmInquiryRefund,
+X,post_order,POST,/post-order/v2/post-order/v2/inquiry/{inquiryId}/escalate,escalateInquiry,
+X,post_order,POST,/post-order/v2/post-order/v2/inquiry/{inquiryId}/issue_refund,issueInquiryRefund,https://api.ebay.com/oauth/scope/sell@user
+X,post_order,POST,/post-order/v2/post-order/v2/inquiry/{inquiryId}/provide_refund_info,provideInquiryRefundInfo,https://api.ebay.com/oauth/scope/sell@user
+X,post_order,POST,/post-order/v2/post-order/v2/inquiry/{inquiryId}/provide_shipment_info,provideInquiryShipmentInfo,https://api.ebay.com/oauth/scope/sell@user
+X,post_order,POST,/post-order/v2/post-order/v2/inquiry/{inquiryId}/send_message,sendInquiryMessage,
+X,post_order,POST,/post-order/v2/post-order/v2/return,createReturnRequest,
+X,post_order,GET,/post-order/v2/post-order/v2/return/preference,getReturnPreferences,https://api.ebay.com/oauth/scope/sell@user
+X,post_order,POST,/post-order/v2/post-order/v2/return/preference,setReturnPreferences,https://api.ebay.com/oauth/scope/sell@user
+X,post_order,GET,/post-order/v2/post-order/v2/return/search,searchReturns,
+X,post_order,GET,/post-order/v2/post-order/v2/return/{returnId},getReturn,
+X,post_order,POST,/post-order/v2/post-order/v2/return/{returnId}/add_shipping_label,addShippingLabelInfo,https://api.ebay.com/oauth/scope/sell@user
+X,post_order,POST,/post-order/v2/post-order/v2/return/{returnId}/decide,processReturnRequest,
+X,post_order,POST,/post-order/v2/post-order/v2/return/{returnId}/escalate,escalateReturn,
+X,post_order,POST,/post-order/v2/post-order/v2/return/{returnId}/file/upload,uploadReturnFile,
+X,post_order,GET,/post-order/v2/post-order/v2/return/{returnId}/files,getReturnFiles,
+X,post_order,POST,/post-order/v2/post-order/v2/return/{returnId}/issue_refund,issueReturnRefund,https://api.ebay.com/oauth/scope/sell@user
+X,post_order,POST,/post-order/v2/post-order/v2/return/{returnId}/mark_as_received,markItemReceived,
+X,post_order,POST,/post-order/v2/post-order/v2/return/{returnId}/send_message,sendReturnMessage,
+X,post_order,GET,/post-order/v2/post-order/v2/return/{returnId}/tracking,getShipmentTrackingInfo,
